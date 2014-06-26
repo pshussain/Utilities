@@ -58,3 +58,7 @@ async-job/.project
 async-job/.settings/
 async-job/.classpath
 
+social-system/target/
+social-system/.project
+social-system/.settings/
+social-system/.classpath
