@@ -1,4 +1,4 @@
-package org.hussain.workspace.builders;
+package org.hussain.workspace.builders.facebook;
 
 public interface AccountBuilder {
 	public void addAccount(Integer a);

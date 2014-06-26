@@ -1,12 +1,12 @@
 package org.hussain.workspace.social_system;
 
-import org.hussain.workspace.builders.facebook.impl.FacebookAdaccountBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookAdcampaignBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookAdimageBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookAdsetBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookAduserBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdaccountBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdcampaignBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdgroupBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdimageBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdsetBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAduserBuilder;
+import org.hussain.workspace.builders.facebook.facebook.impl.FacebookCreativeBuilder;
 
 public class SocialEntity {
 	public static FacebookCreativeBuilder facebookCreative() {

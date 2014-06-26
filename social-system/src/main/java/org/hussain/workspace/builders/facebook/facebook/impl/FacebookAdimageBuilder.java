@@ -1,9 +1,9 @@
-package org.hussain.workspace.builders.facebook.impl;
+package org.hussain.workspace.builders.facebook.facebook.impl;
 
-import org.hussain.workspace.builders.SetBuilder;
+import org.hussain.workspace.builders.facebook.ImageBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
-public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
+public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder{
 
 	public String create() {
 		// TODO Auto-generated method stub
@@ -25,7 +25,7 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 		
 	}
 
-	public void addSet() {
+	public void addImage() {
 		// TODO Auto-generated method stub
 		
 	}

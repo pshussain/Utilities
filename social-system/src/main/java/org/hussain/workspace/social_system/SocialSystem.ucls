@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.5" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+<class-diagram version="1.1.5" icons="true" automaticImage="JPEG" always-add-relationships="true" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
   <class id="1" language="java" name="org.hussain.workspace.social_system.SocialEntity" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/social_system/SocialEntity.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="169" width="278" x="41" y="37"/>    
+    <position height="-1" width="-1" x="611" y="132"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdaccountBuilder" 
+  <class id="3" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdaccountBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdaccountBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -32,7 +32,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdcampaignBuilder" 
+  <class id="4" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdcampaignBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdcampaignBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -43,7 +43,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder" 
+  <class id="5" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdgroupBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdgroupBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -54,7 +54,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAduserBuilder" 
+  <class id="6" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAduserBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAduserBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -65,7 +65,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdsetBuilder" 
+  <class id="7" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdsetBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdsetBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -76,7 +76,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdimageBuilder" 
+  <class id="8" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdimageBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdimageBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -87,7 +87,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="9" language="java" name="org.hussain.workspace.builders.AccountBuilder" project="social-system" 
+  <interface id="9" language="java" name="org.hussain.workspace.builders.facebook.AccountBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/AccountBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1592" y="454"/>    
@@ -97,17 +97,17 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="10" language="java" name="org.hussain.workspace.builders.AdgroupBuilder" project="social-system" 
+  <interface id="10" language="java" name="org.hussain.workspace.builders.facebook.AdgroupBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/AdgroupBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="69" y="357"/>    
+    <position height="-1" width="-1" x="123" y="374"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="11" language="java" name="org.hussain.workspace.builders.SetBuilder" project="social-system" 
+  <interface id="11" language="java" name="org.hussain.workspace.builders.facebook.SetBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/SetBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="607" y="445"/>    
@@ -117,17 +117,17 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="12" language="java" name="org.hussain.workspace.builders.CreativeBuilder" project="social-system" 
+  <interface id="12" language="java" name="org.hussain.workspace.builders.facebook.CreativeBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/CreativeBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="407" y="368"/>    
+    <position height="-1" width="-1" x="368" y="412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="13" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder" 
+  <class id="13" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookCreativeBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookCreativeBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -138,7 +138,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="14" language="java" name="org.hussain.workspace.builders.CampaignBuilder" project="social-system" 
+  <interface id="14" language="java" name="org.hussain.workspace.builders.facebook.CampaignBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/CampaignBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="843" y="468"/>    
@@ -148,7 +148,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="15" language="java" name="org.hussain.workspace.builders.ImageBuilder" project="social-system" 
+  <interface id="15" language="java" name="org.hussain.workspace.builders.facebook.ImageBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/ImageBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1093" y="486"/>    
@@ -158,7 +158,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="16" language="java" name="org.hussain.workspace.builders.UserBuilder" project="social-system" 
+  <interface id="16" language="java" name="org.hussain.workspace.builders.facebook.UserBuilder" project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/UserBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1351" y="489"/>    

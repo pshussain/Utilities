@@ -1,6 +1,6 @@
-package org.hussain.workspace.builders.facebook.impl;
+package org.hussain.workspace.builders.facebook.facebook.impl;
 
-import org.hussain.workspace.builders.AccountBuilder;
+import org.hussain.workspace.builders.facebook.AccountBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {

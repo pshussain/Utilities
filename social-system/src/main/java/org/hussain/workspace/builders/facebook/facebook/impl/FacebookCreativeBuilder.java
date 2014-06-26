@@ -1,8 +1,8 @@
-package org.hussain.workspace.builders.facebook.impl;
+package org.hussain.workspace.builders.facebook.facebook.impl;
 
 import java.util.List;
 
-import org.hussain.workspace.builders.CreativeBuilder;
+import org.hussain.workspace.builders.facebook.CreativeBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookCreativeBuilder implements FacebookCRUD, CreativeBuilder {
