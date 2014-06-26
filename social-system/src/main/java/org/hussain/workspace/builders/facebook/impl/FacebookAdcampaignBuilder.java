@@ -1,9 +1,9 @@
-package org.hussain.workspace.builders.facebook.facebook.impl;
+package org.hussain.workspace.builders.facebook.impl;
 
-import org.hussain.workspace.builders.facebook.SetBuilder;
+import org.hussain.workspace.builders.facebook.CampaignBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
-public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
+public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder{
 
 	public String create() {
 		// TODO Auto-generated method stub
@@ -25,7 +25,7 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 		
 	}
 
-	public void addSet() {
+	public void addCampaign() {
 		// TODO Auto-generated method stub
 		
 	}

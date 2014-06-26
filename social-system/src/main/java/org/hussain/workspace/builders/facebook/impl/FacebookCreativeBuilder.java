@@ -1,4 +1,4 @@
-package org.hussain.workspace.builders.facebook.facebook.impl;
+package org.hussain.workspace.builders.facebook.impl;
 
 import java.util.List;
 

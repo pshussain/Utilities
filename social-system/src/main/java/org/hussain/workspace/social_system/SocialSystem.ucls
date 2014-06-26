@@ -21,7 +21,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdaccountBuilder" 
+  <class id="3" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdaccountBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdaccountBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -32,7 +32,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdcampaignBuilder" 
+  <class id="4" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdcampaignBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdcampaignBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -43,7 +43,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdgroupBuilder" 
+  <class id="5" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdgroupBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -54,7 +54,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAduserBuilder" 
+  <class id="6" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAduserBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAduserBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -65,7 +65,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdsetBuilder" 
+  <class id="7" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdsetBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdsetBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -76,7 +76,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdimageBuilder" 
+  <class id="8" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookAdimageBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookAdimageBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -87,8 +87,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="9" language="java" name="org.hussain.workspace.builders.facebook.AccountBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/AccountBuilder.java" binary="false" 
+  <interface id="9" language="java" name="org.hussain.workspace.builders.facebook.AccountBuilder" 
+    project="social-system" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/AccountBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1592" y="454"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -97,8 +98,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="10" language="java" name="org.hussain.workspace.builders.facebook.AdgroupBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/AdgroupBuilder.java" binary="false" 
+  <interface id="10" language="java" name="org.hussain.workspace.builders.facebook.AdgroupBuilder" 
+    project="social-system" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/AdgroupBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="123" y="374"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -108,7 +110,7 @@
     </display>  
   </interface>  
   <interface id="11" language="java" name="org.hussain.workspace.builders.facebook.SetBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/SetBuilder.java" binary="false" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/SetBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="607" y="445"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -117,8 +119,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="12" language="java" name="org.hussain.workspace.builders.facebook.CreativeBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/CreativeBuilder.java" binary="false" 
+  <interface id="12" language="java" name="org.hussain.workspace.builders.facebook.CreativeBuilder" 
+    project="social-system" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/CreativeBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="368" y="412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -127,7 +130,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="13" language="java" name="org.hussain.workspace.builders.facebook.facebook.impl.FacebookCreativeBuilder" 
+  <class id="13" language="java" name="org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder" 
     project="social-system" 
     file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/impl/FacebookCreativeBuilder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -138,8 +141,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="14" language="java" name="org.hussain.workspace.builders.facebook.CampaignBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/CampaignBuilder.java" binary="false" 
+  <interface id="14" language="java" name="org.hussain.workspace.builders.facebook.CampaignBuilder" 
+    project="social-system" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/CampaignBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="843" y="468"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -149,7 +153,7 @@
     </display>  
   </interface>  
   <interface id="15" language="java" name="org.hussain.workspace.builders.facebook.ImageBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/ImageBuilder.java" binary="false" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/ImageBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1093" y="486"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -159,7 +163,7 @@
     </display>  
   </interface>  
   <interface id="16" language="java" name="org.hussain.workspace.builders.facebook.UserBuilder" project="social-system" 
-    file="/social-system/src/main/java/org/hussain/workspace/builders/UserBuilder.java" binary="false" 
+    file="/social-system/src/main/java/org/hussain/workspace/builders/facebook/UserBuilder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1351" y="489"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -169,58 +173,30 @@
     </display>  
   </interface>  
   <realization id="17">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <realization id="18">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
+  <realization id="18">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
   <realization id="19">    
-    <end type="SOURCE" refId="8"/>    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
   <realization id="20">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="9"/>  
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
   </realization>  
   <realization id="21">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
   <realization id="22">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="16"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="2"/>  
   </realization>  
   <realization id="23">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <realization id="24">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="25">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="26">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <realization id="27">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <realization id="28">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <realization id="29">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="14"/>  
-  </realization>  
-  <realization id="30">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  

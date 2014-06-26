@@ -1,4 +1,4 @@
-package org.hussain.workspace.builders.facebook.facebook.impl;
+package org.hussain.workspace.builders.facebook.impl;
 
 import org.hussain.workspace.builders.facebook.AccountBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;

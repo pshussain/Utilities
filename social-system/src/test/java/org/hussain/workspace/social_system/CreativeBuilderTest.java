@@ -1,7 +1,7 @@
 package org.hussain.workspace.social_system;
 
-import org.hussain.workspace.builders.facebook.facebook.impl.FacebookAdgroupBuilder;
-import org.hussain.workspace.builders.facebook.facebook.impl.FacebookCreativeBuilder;
+import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
+import org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder;
 import org.hussain.workspace.social_system.SocialEntity;
 
 public class CreativeBuilderTest {
