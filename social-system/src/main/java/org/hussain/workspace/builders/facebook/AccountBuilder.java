@@ -1,7 +1,7 @@
 package org.hussain.workspace.builders.facebook;
 
 public interface AccountBuilder {
-	public void createAccount(String name, String currency, Integer timezoneId);
+	public void addAccount(String name, String currency, Integer timezoneId);
 
 	public void updateCreditLine(String accountId, String accountPayableEmail);
 

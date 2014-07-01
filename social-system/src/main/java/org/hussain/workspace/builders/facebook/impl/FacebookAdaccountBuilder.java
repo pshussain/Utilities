@@ -30,7 +30,7 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 
 	}
 
-	public void createAccount(String name, String currency, Integer timezoneId) {
+	public void addAccount(String name, String currency, Integer timezoneId) {
 		JsonObject account = new JsonObject();
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", url);
