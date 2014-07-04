@@ -13,7 +13,7 @@ public class CreativeBuilderTest {
 		System.out.println(builder.create());
 
 		FacebookAdgroupBuilder builder1 = SocialEntity.facebookAdgroup();
-		builder1.addAdgroup(10);
+//		builder1.addAdgroup(accountId, bidType, bidInfo, conversionSpecs, campaignId, creative, objective, targeting, trackingSpecs, socialPrefs);
 		System.out.println(builder1.create());
 	}
 }

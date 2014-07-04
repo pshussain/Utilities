@@ -11,8 +11,7 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	JsonArray accountArray;
 
 	public String create() {
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	public void update() {
@@ -31,7 +30,7 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	}
 
 	public void addAccount(String name, String currency, Integer timezoneId) {
-		JsonObject account = new JsonObject();
+		final JsonObject account = new JsonObject();
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", url);
 		account.addProperty("body", "name=" + name + "&currency=" + currency
@@ -87,6 +86,10 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 
 	public void read(String accountId, String fields) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public void update(String key, String value) {
 
 	}
 
