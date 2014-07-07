@@ -1,12 +1,9 @@
 package org.hussain.workspace.builders.facebook.impl;
 
-import org.hussain.workspace.builders.facebook.CampaignBuilder;
+import org.hussain.workspace.builders.facebook.AudienceBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
-import com.google.gson.JsonArray;
-
-public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder {
-	JsonArray campaignArray;
+public class FacebookAudienceBuilder implements FacebookCRUD, AudienceBuilder {
 
 	public String create(boolean isBatch) {
 		// TODO Auto-generated method stub
@@ -28,23 +25,22 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 
 	}
 
-	public void addCampaign(String accountId, String name, String objective,
-			String campaignGroupStatus, String buyingType) {
+	public void addUser(String name, String currency, Integer timezoneId) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void updateName(String name) {
+	public void updateAudience(String accountId, String accountPayableEmail) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void updateObjective(String objective) {
+	public void read(String accountId) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void updateStatus(String status) {
+	public void read(String accountId, String fields) {
 		// TODO Auto-generated method stub
 
 	}

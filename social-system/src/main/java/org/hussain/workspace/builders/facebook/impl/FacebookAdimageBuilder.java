@@ -5,7 +5,7 @@ import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 
-	public String create() {
+	public String create(boolean isBatch) {
 		// TODO Auto-generated method stub
 		return null;
 	}

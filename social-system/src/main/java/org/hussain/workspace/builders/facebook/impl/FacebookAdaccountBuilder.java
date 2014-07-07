@@ -7,11 +7,18 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
-	private String url = "me/adaccounts";
+	private String batchUrl = "me/adaccounts";
+	private String singleUrl = "me/adaccounts";
 	JsonArray accountArray;
 
-	public String create() {
-		
+	public String create(boolean isBatch) {
+		if (accountArray.size() > 1)
+			// Use BatchUrl
+			return batchUrl;
+		else
+			// Use SingleUrl
+			return singleUrl;
+
 	}
 
 	public void update() {
@@ -32,7 +39,7 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	public void addAccount(String name, String currency, Integer timezoneId) {
 		final JsonObject account = new JsonObject();
 		account.addProperty("method", "POST");
-		account.addProperty("relative_url", url);
+		account.addProperty("relative_url", batchUrl);
 		account.addProperty("body", "name=" + name + "&currency=" + currency
 				+ "&timezone_id=" + timezoneId);
 		accountArray.add(account);
@@ -40,42 +47,72 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	}
 
 	public void updateCreditLine(String accountId, String accountPayableEmail) {
-		// TODO Auto-generated method stub
-
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "account_payable_email="
+				+ accountPayableEmail);
+		accountArray.add(account);
 	}
 
 	public void updateSpendCap(String accountId, Integer spendCap) {
-		// TODO Auto-generated method stub
-
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "spend_cap=" + spendCap);
+		accountArray.add(account);
 	}
 
 	public void updateSpendCapAction(String accountId, String action) {
-		// TODO Auto-generated method stub
-
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "spend_cap_action=" + action);
+		accountArray.add(account);
 	}
 
 	public void updateAccountName(String accountId, String name) {
-		// TODO Auto-generated method stub
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "name=" + name);
+		accountArray.add(account);
 
 	}
 
 	public void updateAgencyClientDeclaration(String accountId, Object name) {
-		// TODO Auto-generated method stub
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "agency_client_declaration=" + name);
+		accountArray.add(account);
 
 	}
 
 	public void updateEndAdvertiser(String accountId, Long pageOrAppId) {
-		// TODO Auto-generated method stub
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "end_advertiser=" + pageOrAppId);
+		accountArray.add(account);
 
 	}
 
 	public void updateMediaAgency(String accountId, Long pageOrAppId) {
-		// TODO Auto-generated method stub
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "media_agency=" + pageOrAppId);
+		accountArray.add(account);
 
 	}
 
 	public void updatePartner(String accountId, Long pageOrAppId) {
-		// TODO Auto-generated method stub
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", "partner=" + pageOrAppId);
+		accountArray.add(account);
 
 	}
 
@@ -90,7 +127,11 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	}
 
 	public void update(String key, String value) {
-
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "POST");
+		account.addProperty("relative_url", batchUrl);
+		account.addProperty("body", key + "=" + value);
+		accountArray.add(account);
 	}
 
 }

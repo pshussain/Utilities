@@ -23,7 +23,7 @@ public class FacebookCreativeBuilder implements FacebookCRUD, CreativeBuilder {
 
 	}
 
-	public String create() {
+	public String create(boolean isBatch) {
 		return "TEST";
 
 	}

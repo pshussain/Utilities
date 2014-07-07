@@ -1,21 +1,17 @@
 package org.hussain.workspace.http;
 
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.util.EntityUtils;
 
-public class FacebookHandler {
+public class HttpHandler {
 	/**
 	 * doGet method to execute the GET request
 	 * 

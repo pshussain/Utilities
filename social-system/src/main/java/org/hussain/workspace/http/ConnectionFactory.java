@@ -48,8 +48,7 @@ public class ConnectionFactory {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ConnectionFactory getInstance(String confDir, String action)
-			throws Exception {
+	public static ConnectionFactory getInstance() throws Exception {
 		return new ConnectionFactory();
 	}
 
