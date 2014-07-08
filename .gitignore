@@ -68,3 +68,8 @@ social-advertising-api/.project
 social-advertising-api/.settings/
 social-advertising-api/.classpath
 
+disruptor-jms/target/
+disruptor-jms/.project
+disruptor-jms/.settings/
+disruptor-jms/.classpath
+
