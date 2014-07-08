@@ -62,3 +62,9 @@ social-system/target/
 social-system/.project
 social-system/.settings/
 social-system/.classpath
+
+social-advertising-api/target/
+social-advertising-api/.project
+social-advertising-api/.settings/
+social-advertising-api/.classpath
+
