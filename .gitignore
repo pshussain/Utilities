@@ -73,3 +73,9 @@ disruptor-jms/.project
 disruptor-jms/.settings/
 disruptor-jms/.classpath
 
+
+kafka-producer/target/
+kafka-produce/.project
+kafka-produce/.settings/
+kafka-produce/.classpath
+
