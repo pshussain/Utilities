@@ -1,7 +1,7 @@
 package org.hussain.workspace.crud;
 
 public interface FacebookCRUD {
-	public String create(boolean isBatch);
+	public String create();
 
 	public void update();
 

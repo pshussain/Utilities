@@ -5,7 +5,7 @@ import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 
-	public String create(boolean isBatch) {
+	public String create() {
 		// TODO Auto-generated method stub
 		return null;
 	}

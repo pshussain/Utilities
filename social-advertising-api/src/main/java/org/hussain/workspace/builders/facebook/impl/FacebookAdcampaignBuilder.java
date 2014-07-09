@@ -8,7 +8,7 @@ import com.google.gson.JsonArray;
 public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder {
 	JsonArray campaignArray;
 
-	public String create(boolean isBatch) {
+	public String create() {
 		// TODO Auto-generated method stub
 		return null;
 	}

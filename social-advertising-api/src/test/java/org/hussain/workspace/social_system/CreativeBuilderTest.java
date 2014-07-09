@@ -10,12 +10,12 @@ public class CreativeBuilderTest {
 		builder.addCreative(10);
 		builder.addCreative(5);
 		builder.addCreative("Hussain");
-		System.out.println(builder.create(false));
+		System.out.println(builder.create());
 
 		FacebookAdgroupBuilder builder1 = SocialEntity.facebookAdgroup();
 		// builder1.addAdgroup(accountId, bidType, bidInfo, conversionSpecs,
 		// campaignId, creative, objective, targeting, trackingSpecs,
 		// socialPrefs);
-		System.out.println(builder1.create(false));
+		System.out.println(builder1.create());
 	}
 }

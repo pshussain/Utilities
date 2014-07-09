@@ -7,7 +7,7 @@ import com.google.gson.JsonObject;
 
 public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 
-	public String create(boolean isBatch) {
+	public String create() {
 		// TODO Auto-generated method stub
 		return null;
 	}
