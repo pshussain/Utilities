@@ -5,4 +5,6 @@ public class FacebookUtil {
 		return body.append(key).append("=").append(value).toString();
 
 	}
+
+	public static String baseURL = "https://graph.facebook.com";
 }

@@ -1,11 +1,15 @@
 package org.hussain.workspace.builders.facebook.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
 import org.hussain.workspace.builders.facebook.AccountBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
+import org.hussain.workspace.http.HttpHandler;
 import org.hussain.workspace.utils.FacebookUtil;
 
 import com.google.gson.JsonArray;
@@ -14,11 +18,27 @@ import com.google.gson.JsonObject;
 public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 	private String batchUrl = "me/adaccounts";
 	final List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
-	JsonArray addAccountArray;
-	JsonArray updateAccountArray;
-	JsonArray readAccountArray;
+	private JsonArray addAccountArray;
+	private JsonArray updateAccountArray;
+	private JsonArray readAccountArray;
+	private String accessToken;
 
-	public String create() {
+	// Map<String, FileBody> attachedFile = new HashMap<String, FileBody>();
+
+	public FacebookAdaccountBuilder(String accessToken) {
+
+		this.accessToken = accessToken;
+	}
+
+	public String create() throws UnsupportedEncodingException, Exception {
+		final List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+				1);
+		nameValuePairs.add(new BasicNameValuePair("batch", addAccountArray
+				.toString()));
+		nameValuePairs.add(new BasicNameValuePair("access_token",
+				this.accessToken));
+		String response = HttpHandler.doPost(FacebookUtil.baseURL,
+				new UrlEncodedFormEntity(nameValuePairs));
 		return null;
 	}
 

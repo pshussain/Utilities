@@ -1,8 +1,11 @@
 package org.hussain.workspace.http;
 
+import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -17,7 +20,7 @@ public class HttpHandler {
 	 * 
 	 * @throws Exception
 	 */
-	public String doGet(String url) throws Exception {
+	public static String doGet(String url) throws Exception {
 		final HttpGet get = new HttpGet();
 		get.setURI(new URI(url));
 		final CloseableHttpResponse response = ConnectionFactory.getInstance()
@@ -32,11 +35,23 @@ public class HttpHandler {
 	}
 
 	/**
-	 * doPost method to execute the POST request
+	 * doPost method to execute the POST request.
 	 * 
-	 * @throws Exception
+	 * @param baseURL
+	 *            the base url
+	 * @param entity
+	 *            the entity
+	 * @return the string
+	 * @throws URISyntaxException
+	 *             the URI syntax exception
+	 * @throws ClientProtocolException
+	 *             the client protocol exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
-	public String doPost(String baseURL, HttpEntity entity) throws Exception {
+
+	public static String doPost(String baseURL, HttpEntity entity)
+			throws Exception {
 		final HttpPost post = new HttpPost();
 		post.setURI(new URI(baseURL));
 		post.setEntity(entity);
@@ -60,8 +75,8 @@ public class HttpHandler {
 	 * @return
 	 * @throws Exception
 	 */
-	public String doDelete(String url, boolean isRemote, HttpParams params)
-			throws Exception {
+	public static String doDelete(String url, boolean isRemote,
+			HttpParams params) throws Exception {
 		final HttpDelete delete = new HttpDelete();
 		delete.setURI(new URI(url));
 		if (params != null) {

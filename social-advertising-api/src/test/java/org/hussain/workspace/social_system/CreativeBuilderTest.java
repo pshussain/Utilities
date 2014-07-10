@@ -2,7 +2,7 @@ package org.hussain.workspace.social_system;
 
 import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder;
-import org.hussain.workspace.social_system.SocialEntity;
+import org.hussain.workspace.social.api.SocialEntity;
 
 public class CreativeBuilderTest {
 	public static void main(String[] args) {
