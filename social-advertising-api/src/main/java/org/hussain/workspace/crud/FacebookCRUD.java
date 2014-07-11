@@ -1,11 +1,12 @@
 package org.hussain.workspace.crud;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 public interface FacebookCRUD {
-	public String create() throws UnsupportedEncodingException, Exception;
+	public List<String> create() throws UnsupportedEncodingException, Exception;
 
-	public void update();
+	public void update() throws Exception;
 
 	public void delete();
 

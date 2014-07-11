@@ -1,11 +1,13 @@
 package org.hussain.workspace.builders.facebook.impl;
 
+import java.util.List;
+
 import org.hussain.workspace.builders.facebook.ImageBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 
-	public String create() {
+	public List<String> create() {
 		// TODO Auto-generated method stub
 		return null;
 	}

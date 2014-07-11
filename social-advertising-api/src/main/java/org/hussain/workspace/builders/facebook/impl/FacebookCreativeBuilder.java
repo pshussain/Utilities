@@ -23,8 +23,8 @@ public class FacebookCreativeBuilder implements FacebookCRUD, CreativeBuilder {
 
 	}
 
-	public String create() {
-		return "TEST";
+	public List<String> create() {
+		return null;
 
 	}
 

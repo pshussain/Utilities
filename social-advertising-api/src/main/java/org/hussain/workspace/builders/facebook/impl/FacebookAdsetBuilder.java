@@ -1,11 +1,13 @@
 package org.hussain.workspace.builders.facebook.impl;
 
+import java.util.List;
+
 import org.hussain.workspace.builders.facebook.SetBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 
-	public String create() {
+	public List<String> create() {
 		// TODO Auto-generated method stub
 		return null;
 	}

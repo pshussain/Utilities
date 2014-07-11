@@ -19,7 +19,7 @@ public interface AccountBuilder {
 
 	public void updatePartner(String accountId, Long pageOrAppId);
 
-	public void update(String key, String value);
+	public void update(String accountId, String key, String value);
 
 	public void read(String accountId);
 

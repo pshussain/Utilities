@@ -1,5 +1,7 @@
 package org.hussain.workspace.builders.facebook.impl;
 
+import java.util.List;
+
 import org.hussain.workspace.builders.facebook.CampaignBuilder;
 import org.hussain.workspace.crud.FacebookCRUD;
 
@@ -8,7 +10,7 @@ import com.google.gson.JsonArray;
 public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder {
 	JsonArray campaignArray;
 
-	public String create() {
+	public List<String> create() {
 		// TODO Auto-generated method stub
 		return null;
 	}
