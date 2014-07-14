@@ -21,8 +21,8 @@ public interface AccountBuilder {
 
 	public void update(String accountId, String key, String value);
 
-	public void read(String accountId);
+	public void fetch(String accountId);
 
-	public void read(String accountId, String fields);
+	public void fetch(String accountId, String fields);
 
 }

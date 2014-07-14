@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.util.List;
 
 import org.hussain.workspace.builders.facebook.AudienceBuilder;
+import org.hussain.workspace.builders.facebook.bean.Audience;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAudienceBuilder implements FacebookCRUD, AudienceBuilder {
@@ -12,7 +13,8 @@ public class FacebookAudienceBuilder implements FacebookCRUD, AudienceBuilder {
 		return null;
 	}
 
-	public void update() {
+	public List<Boolean> update() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
@@ -22,9 +24,9 @@ public class FacebookAudienceBuilder implements FacebookCRUD, AudienceBuilder {
 
 	}
 
-	public void read() {
+	public List<Audience> read() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	public void addUser(String name, String currency, Integer timezoneId) {

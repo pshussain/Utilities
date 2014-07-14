@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.util.List;
 
 import org.hussain.workspace.builders.facebook.CampaignBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdCampaign;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 import com.google.gson.JsonArray;
@@ -15,7 +16,8 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		return null;
 	}
 
-	public void update() {
+	public List<Boolean> update() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
@@ -25,7 +27,8 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 
 	}
 
-	public void read() {
+	public List<AdCampaign> read() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

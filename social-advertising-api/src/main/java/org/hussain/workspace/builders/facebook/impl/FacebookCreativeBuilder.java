@@ -3,12 +3,14 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.util.List;
 
 import org.hussain.workspace.builders.facebook.CreativeBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdCreative;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookCreativeBuilder implements FacebookCRUD, CreativeBuilder {
 	List<String> queue;
 
-	public void update() {
+	public List<Boolean> update() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
@@ -18,9 +20,9 @@ public class FacebookCreativeBuilder implements FacebookCRUD, CreativeBuilder {
 
 	}
 
-	public void read() {
+	public List<AdCreative> read() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	public List<String> create() {

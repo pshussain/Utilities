@@ -92,4 +92,10 @@ public class FacebookUtil {
 		final Gson gson = new Gson();
 		return gson.fromJson(response, JsonObject.class);
 	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> T fromJson(JsonObject response, Class klass) {
+		final Gson gson = new Gson();
+		return (T) gson.fromJson(response, klass);
+	}
 }

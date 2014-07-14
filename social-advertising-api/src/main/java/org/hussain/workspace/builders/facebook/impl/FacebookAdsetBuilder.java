@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.util.List;
 
 import org.hussain.workspace.builders.facebook.SetBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdSet;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
@@ -12,7 +13,8 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 		return null;
 	}
 
-	public void update() {
+	public List<Boolean> update() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
@@ -22,7 +24,8 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder{
 		
 	}
 
-	public void read() {
+	public List<AdSet> read() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}

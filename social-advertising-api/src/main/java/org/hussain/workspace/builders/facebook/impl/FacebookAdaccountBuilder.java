@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.AccountBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdAccount;
 import org.hussain.workspace.crud.FacebookCRUD;
 import org.hussain.workspace.http.HttpHandler;
 import org.hussain.workspace.utils.Constants;
@@ -41,20 +42,36 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject account : responseList) {
-			FacebookUtil.iSuccess(account);
 			if (FacebookUtil.iSuccess(account)) {
 				String accountId = getAccountId(account);
 				accountIdList.add(accountId);
 			}
 		}
-		System.out.println(accountIdList);
 		return accountIdList;
 	}
 
-	public void update() throws Exception {
+	public List<Boolean> update() throws Exception {
+		List<Boolean> accountIdList = new ArrayList<Boolean>();
 		final HttpEntity entity = FacebookUtil.buildBatch(updateAccountBatch,
 				this.accessToken, false);
 		String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject account : responseList) {
+			if (FacebookUtil.iSuccess(account)) {
+				boolean updateStatus = getUpdateStatus(account);
+				accountIdList.add(updateStatus);
+			}
+		}
+		return accountIdList;
+	}
+
+	private boolean getUpdateStatus(JsonObject account) {
+		final String body = account.get("body").getAsString();
+		boolean status = FacebookUtil.toJson(body).get("success")
+				.getAsBoolean();
+		return status;
 	}
 
 	public void delete() {
@@ -62,9 +79,31 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 
 	}
 
-	public void read() {
-		// TODO Auto-generated method stub
+	public List<AdAccount> read() throws UnsupportedEncodingException,
+			Exception {
+		List<AdAccount> accountList = new ArrayList<AdAccount>();
+		final HttpEntity entity = FacebookUtil.buildBatch(readAccountBatch,
+				this.accessToken, false);
+		final String response = HttpHandler.doPost(Constants.baseURL, entity);
 
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject account : responseList) {
+			if (FacebookUtil.iSuccess(account)) {
+				AdAccount accountInfo = makeAccount(FacebookUtil.toJson(account
+						.toString()));
+				accountList.add(accountInfo);
+			}
+		}
+		return accountList;
+
+	}
+
+	private AdAccount makeAccount(JsonObject account) {
+		String body = account.get("body").getAsString();
+		AdAccount accountBean = (AdAccount) FacebookUtil.fromJson(
+				FacebookUtil.toJson(body), AdAccount.class);
+		return accountBean;
 	}
 
 	public void addAccount(String name, String currency, Integer timezoneId) {
@@ -78,7 +117,6 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
 		FacebookUtil.buildBody(body, "redownload", true);
 		account.addProperty("body", body.toString());
-		System.out.println(account);
 		addAccountBatch.add(account);
 
 	}
@@ -88,8 +126,11 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body", FacebookUtil.buildBody(body,
-				"account_payable_email", accountPayableEmail));
+		FacebookUtil.buildBody(body, "account_payable_email",
+				accountPayableEmail);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 	}
 
@@ -118,7 +159,10 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body", FacebookUtil.buildBody(body, "name", name));
+		FacebookUtil.buildBody(body, "name", name, Constants.AMP);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 
 	}
@@ -128,8 +172,11 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body",
-				FacebookUtil.buildBody(body, "agency_client_declaration", name));
+		FacebookUtil.buildBody(body, "agency_client_declaration", name,
+				Constants.AMP);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 
 	}
@@ -139,8 +186,11 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body",
-				FacebookUtil.buildBody(body, "end_advertiser", pageOrAppId));
+		FacebookUtil.buildBody(body, "end_advertiser", pageOrAppId,
+				Constants.AMP);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 
 	}
@@ -150,8 +200,11 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body",
-				FacebookUtil.buildBody(body, "media_agency", pageOrAppId));
+		FacebookUtil
+				.buildBody(body, "media_agency", pageOrAppId, Constants.AMP);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 
 	}
@@ -161,25 +214,28 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 		final StringBuilder body = new StringBuilder(100);
 		account.addProperty("method", "POST");
 		account.addProperty("relative_url", "act_" + accountId);
-		account.addProperty("body",
-				FacebookUtil.buildBody(body, "partner", pageOrAppId));
+		FacebookUtil.buildBody(body, "partner", pageOrAppId, Constants.AMP);
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		account.addProperty("body", body.toString());
 		updateAccountBatch.add(account);
 
 	}
 
-	public void read(String accountId) {
+	public void fetch(String accountId) {
 		final JsonObject account = new JsonObject();
 		account.addProperty("method", "GET");
-		account.addProperty("relative_url", "act_" + accountId);
+		account.addProperty("relative_url", "act_" + accountId
+				+ "?include_headers=false");
 		readAccountBatch.add(account);
 
 	}
 
-	public void read(String accountId, String fields) {
+	public void fetch(String accountId, String fields) {
 		final JsonObject account = new JsonObject();
 		account.addProperty("method", "GET");
 		account.addProperty("relative_url", "act_" + accountId + "/?fields="
-				+ fields);
+				+ fields + "&include_headers=false");
 		readAccountBatch.add(account);
 	}
 

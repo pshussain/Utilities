@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.util.List;
 
 import org.hussain.workspace.builders.facebook.ImageBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdImage;
 import org.hussain.workspace.crud.FacebookCRUD;
 
 public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
@@ -12,7 +13,8 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 		return null;
 	}
 
-	public void update() {
+	public List<Boolean> update() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
@@ -22,7 +24,8 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 
 	}
 
-	public void read() {
+	public List<AdImage> read() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
