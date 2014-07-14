@@ -17,8 +17,8 @@ public class SocialEntity {
 		return new FacebookAdgroupBuilder();
 	}
 
-	public static FacebookAdcampaignBuilder facebookAdcampaign() {
-		return new FacebookAdcampaignBuilder();
+	public static FacebookAdcampaignBuilder facebookAdcampaign(String accessToken) {
+		return new FacebookAdcampaignBuilder(accessToken);
 	}
 
 	public static FacebookAdsetBuilder facebookAdset() {

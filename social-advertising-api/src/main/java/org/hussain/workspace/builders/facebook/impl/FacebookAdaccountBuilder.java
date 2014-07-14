@@ -79,6 +79,7 @@ public class FacebookAdaccountBuilder implements FacebookCRUD, AccountBuilder {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<AdAccount> read() throws UnsupportedEncodingException,
 			Exception {
 		List<AdAccount> accountList = new ArrayList<AdAccount>();
