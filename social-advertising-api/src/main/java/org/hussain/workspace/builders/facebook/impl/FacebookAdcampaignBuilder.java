@@ -189,4 +189,15 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 				FacebookUtil.buildUpdateBody(updateBody, keyVal));
 		updateCampaignBatch.add(campaign);
 	}
+
+	public void fetch(String accountId) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void fetch(String accountId, String fields) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

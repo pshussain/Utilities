@@ -267,4 +267,22 @@ public class FacebookAdcreativeBuilder implements FacebookCRUD, CreativeBuilder 
 				FacebookUtil.buildUpdateBody(updateBody, keyVal));
 		updateCreativeBatch.add(creative);
 	}
+
+	public void fetch(String adCampaignGroupId) {
+		final JsonObject creative = new JsonObject();
+		creative.addProperty("method", "GET");
+		creative.addProperty("relative_url", adCampaignGroupId
+				+ "?include_headers=false");
+		readCreativeBatch.add(creative);
+
+	}
+
+	public void fetch(String adCampaignGroupId, String fields) {
+		final JsonObject account = new JsonObject();
+		account.addProperty("method", "GET");
+		account.addProperty("relative_url", adCampaignGroupId + "/?fields="
+				+ fields + "&include_headers=false");
+		readCreativeBatch.add(account);
+	}
+
 }

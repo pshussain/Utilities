@@ -15,4 +15,8 @@ public interface CampaignBuilder {
 	public void update(String accountId, String key, String value);
 
 	public void update(String accountId, Map<String, String> keyVal);
+
+	public void fetch(String accountId);
+
+	public void fetch(String accountId, String fields);
 }

@@ -26,4 +26,7 @@ public interface CreativeBuilder {
 			String imageHash, String body, String actorName, String urlTags,
 			String linkUrl, String name, String actorImageHash);
 
+	public void fetch(String accountId);
+
+	public void fetch(String accountId, String fields);
 }

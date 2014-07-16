@@ -5,4 +5,8 @@ public interface SetBuilder {
 			String campaignStatus, String startTime, String endTime,
 			String updatedTime, String created_time, Integer daily_budget,
 			Integer lifetimeBudget);
+
+	public void fetch(String accountId);
+
+	public void fetch(String accountId, String fields);
 }

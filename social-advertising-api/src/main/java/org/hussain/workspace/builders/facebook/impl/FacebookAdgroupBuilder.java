@@ -3,11 +3,11 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.AdgroupBuilder;
-import org.hussain.workspace.builders.facebook.bean.AdAccount;
 import org.hussain.workspace.builders.facebook.bean.AdGroup;
 import org.hussain.workspace.crud.FacebookCRUD;
 import org.hussain.workspace.http.HttpHandler;
@@ -24,15 +24,48 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	private JsonArray readGroupBatch;
 	private String accessToken;
 
-	public List<String> create() {
+	public List<String> create() throws Exception {
+		List<String> adgroupIdList = new ArrayList<String>();
+		final HttpEntity entity = FacebookUtil.buildBatch(addGroupBatch,
+				this.accessToken, false);
+		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject adgroup : responseList) {
+			if (FacebookUtil.iSuccess(adgroup)) {
+				String accountId = getAdgroupId(adgroup);
+				adgroupIdList.add(accountId);
+			}
+		}
+		return adgroupIdList;
+	}
+
+	private String getAdgroupId(JsonObject adgroup) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Boolean> update() {
-		return null;
-		// TODO Auto-generated method stub
+	public List<Boolean> update() throws Exception {
+		List<Boolean> adgroupIdList = new ArrayList<Boolean>();
+		final HttpEntity entity = FacebookUtil.buildBatch(updateGroupBatch,
+				this.accessToken, false);
+		String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject adgroup : responseList) {
+			if (FacebookUtil.iSuccess(adgroup)) {
+				boolean updateStatus = getUpdateStatus(adgroup);
+				adgroupIdList.add(updateStatus);
+			}
+		}
+		return adgroupIdList;
 
+	}
+
+	private boolean getUpdateStatus(JsonObject account) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public void delete() {
@@ -98,13 +131,38 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	}
 
 	public void fetch(String adgroupId) {
-		// TODO Auto-generated method stub
-
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "GET");
+		adgroup.addProperty("relative_url", adgroupId
+				+ "?include_headers=false");
+		readGroupBatch.add(adgroup);
 	}
 
 	public void fetch(String adgroupId, String fields) {
-		// TODO Auto-generated method stub
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "GET");
+		adgroup.addProperty("relative_url", adgroupId + "/?fields=" + fields
+				+ "&include_headers=false");
+		readGroupBatch.add(adgroup);
+	}
 
+	public void update(String adgroupId, String key, String value) {
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "POST");
+		adgroup.addProperty("relative_url", adgroupId);
+		adgroup.addProperty("body", key + "=" + value);
+		updateGroupBatch.add(adgroup);
+
+	}
+
+	public void update(String adgroupId, Map<String, String> keyVal) {
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "POST");
+		adgroup.addProperty("relative_url", adgroupId);
+		StringBuilder updateBody = new StringBuilder();
+		adgroup.addProperty("body",
+				FacebookUtil.buildUpdateBody(updateBody, keyVal));
+		updateGroupBatch.add(adgroup);
 	}
 
 }

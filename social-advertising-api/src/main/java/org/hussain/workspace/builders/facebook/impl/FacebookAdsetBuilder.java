@@ -1,12 +1,16 @@
 package org.hussain.workspace.builders.facebook.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.SetBuilder;
+import org.hussain.workspace.builders.facebook.bean.AdCampaign;
 import org.hussain.workspace.builders.facebook.bean.AdSet;
 import org.hussain.workspace.crud.FacebookCRUD;
+import org.hussain.workspace.http.HttpHandler;
 import org.hussain.workspace.utils.Constants;
 import org.hussain.workspace.utils.FacebookUtil;
 
@@ -27,15 +31,49 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		this.accessToken = accessToken;
 	}
 
-	public List<String> create() {
+	public List<String> create() throws Exception {
+		List<String> adsetIdList = new ArrayList<String>();
+		final HttpEntity entity = FacebookUtil.buildBatch(addSetBatch,
+				this.accessToken, false);
+		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject adset : responseList) {
+			if (FacebookUtil.iSuccess(adset)) {
+				String adsetId = getAdsetId(adset);
+				adsetIdList.add(adsetId);
+			}
+		}
+		return adsetIdList;
+	}
+
+	private String getAdsetId(JsonObject adset) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Boolean> update() {
-		return null;
-		// TODO Auto-generated method stub
+	public List<Boolean> update() throws UnsupportedEncodingException,
+			Exception {
+		List<Boolean> adsetIdList = new ArrayList<Boolean>();
+		final HttpEntity entity = FacebookUtil.buildBatch(updateSetBatch,
+				this.accessToken, false);
+		String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject adset : responseList) {
+			if (FacebookUtil.iSuccess(adset)) {
+				boolean updateStatus = getUpdateStatus(adset);
+				adsetIdList.add(updateStatus);
+			}
+		}
+		return adsetIdList;
 
+	}
+
+	private boolean getUpdateStatus(JsonObject account) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public void delete() {
@@ -43,15 +81,28 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 
 	}
 
-	public List<AdSet> read() {
-		return null;
-		// TODO Auto-generated method stub
+	public List<AdSet> read() throws Exception {
+		List<AdSet> accountList = new ArrayList<AdSet>();
+		final HttpEntity entity = FacebookUtil.buildBatch(readSetBatch,
+				this.accessToken, false);
+		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+
+		final List<JsonObject> responseList = FacebookUtil
+				.getResponseAsList(response);
+		for (JsonObject adset : responseList) {
+			if (FacebookUtil.iSuccess(adset)) {
+				AdSet adsetInfo = makeAdset(FacebookUtil.toJson(adset
+						.toString()));
+				accountList.add(adsetInfo);
+			}
+		}
+		return accountList;
 
 	}
 
-	public void addSet() {
+	private AdSet makeAdset(JsonObject json) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	public void addSet(String accountId, String name, String campaignGroupId,
@@ -81,6 +132,21 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		FacebookUtil.buildBody(body, "redownload", true);
 		campaign.addProperty("body", body.toString());
 		addSetBatch.add(campaign);
+	}
+
+	public void fetch(String adsetId) {
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "GET");
+		adgroup.addProperty("relative_url", adsetId + "?include_headers=false");
+		readSetBatch.add(adgroup);
+	}
+
+	public void fetch(String adsetId, String fields) {
+		final JsonObject adgroup = new JsonObject();
+		adgroup.addProperty("method", "GET");
+		adgroup.addProperty("relative_url", adsetId + "/?fields=" + fields
+				+ "&include_headers=false");
+		readSetBatch.add(adgroup);
 	}
 
 }

@@ -1,5 +1,7 @@
 package org.hussain.workspace.builders.facebook;
 
+import java.util.Map;
+
 import com.google.gson.JsonObject;
 
 public interface AdgroupBuilder {
@@ -12,4 +14,8 @@ public interface AdgroupBuilder {
 	public void fetch(String adgroupId);
 
 	public void fetch(String adgroupId, String fields);
+
+	public void update(String adgroupId, String key, String value);
+
+	public void update(String adgroupId, Map<String, String> keyVal);
 }
