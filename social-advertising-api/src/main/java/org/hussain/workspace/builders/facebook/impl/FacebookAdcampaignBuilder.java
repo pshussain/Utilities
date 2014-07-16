@@ -74,8 +74,8 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		return campaignIdList;
 	}
 
-	private boolean getUpdateStatus(JsonObject account) {
-		final String body = account.get("body").getAsString();
+	private boolean getUpdateStatus(JsonObject campaign) {
+		final String body = campaign.get("body").getAsString();
 		boolean status = FacebookUtil.toJson(body).get("success")
 				.getAsBoolean();
 		return status;
@@ -116,10 +116,10 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 
 	public void addCampaign(String accountId, String name, String objective,
 			String campaignGroupStatus, String buyingType) {
-		final JsonObject account = new JsonObject();
-		account.addProperty("method", "POST");
+		final JsonObject campaign = new JsonObject();
+		campaign.addProperty("method", "POST");
 		final StringBuilder body = new StringBuilder(100);
-		account.addProperty("relative_url", "act_" + accountId
+		campaign.addProperty("relative_url", "act_" + accountId
 				+ "/adcampaign_groups");
 		FacebookUtil.buildBody(body, "name", name, Constants.AMP);
 		FacebookUtil.buildBody(body, "objective", objective, Constants.AMP);
@@ -128,65 +128,65 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		FacebookUtil.buildBody(body, "buying_type", buyingType, Constants.AMP);
 		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
 		FacebookUtil.buildBody(body, "redownload", true);
-		account.addProperty("body", body.toString());
-		addCampaignBatch.add(account);
+		campaign.addProperty("body", body.toString());
+		addCampaignBatch.add(campaign);
 
 	}
 
 	public void updateName(String accountId, String name) {
-		final JsonObject account = new JsonObject();
+		final JsonObject campaign = new JsonObject();
 		final StringBuilder body = new StringBuilder(100);
-		account.addProperty("method", "POST");
-		account.addProperty("relative_url", accountId);
+		campaign.addProperty("method", "POST");
+		campaign.addProperty("relative_url", accountId);
 		FacebookUtil.buildBody(body, "name", name, Constants.AMP);
 		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
 		FacebookUtil.buildBody(body, "redownload", true);
-		account.addProperty("body", body.toString());
-		updateCampaignBatch.add(account);
+		campaign.addProperty("body", body.toString());
+		updateCampaignBatch.add(campaign);
 
 	}
 
 	public void updateObjective(String accountId, String objective) {
-		final JsonObject account = new JsonObject();
+		final JsonObject campaign = new JsonObject();
 		final StringBuilder body = new StringBuilder(100);
-		account.addProperty("method", "POST");
-		account.addProperty("relative_url", accountId);
+		campaign.addProperty("method", "POST");
+		campaign.addProperty("relative_url", accountId);
 		FacebookUtil.buildBody(body, "objective", objective, Constants.AMP);
 		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
 		FacebookUtil.buildBody(body, "redownload", true);
-		account.addProperty("body", body.toString());
-		updateCampaignBatch.add(account);
+		campaign.addProperty("body", body.toString());
+		updateCampaignBatch.add(campaign);
 
 	}
 
 	public void updateStatus(String accountId, String status) {
-		final JsonObject account = new JsonObject();
+		final JsonObject campaign = new JsonObject();
 		final StringBuilder body = new StringBuilder(100);
-		account.addProperty("method", "POST");
-		account.addProperty("relative_url", accountId);
+		campaign.addProperty("method", "POST");
+		campaign.addProperty("relative_url", accountId);
 		FacebookUtil.buildBody(body, "status", status, Constants.AMP);
 		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
 		FacebookUtil.buildBody(body, "redownload", true);
-		account.addProperty("body", body.toString());
-		updateCampaignBatch.add(account);
+		campaign.addProperty("body", body.toString());
+		updateCampaignBatch.add(campaign);
 
 	}
 
 	public void update(String accountId, String key, String value) {
-		final JsonObject account = new JsonObject();
-		account.addProperty("method", "POST");
-		account.addProperty("relative_url", accountId);
-		account.addProperty("body", key + "=" + value);
-		updateCampaignBatch.add(account);
+		final JsonObject campaign = new JsonObject();
+		campaign.addProperty("method", "POST");
+		campaign.addProperty("relative_url", accountId);
+		campaign.addProperty("body", key + "=" + value);
+		updateCampaignBatch.add(campaign);
 	}
 
 	public void update(String accountId, Map<String, String> keyVal) {
-		final JsonObject account = new JsonObject();
-		account.addProperty("method", "POST");
-		account.addProperty("relative_url", accountId);
+		final JsonObject campaign = new JsonObject();
+		campaign.addProperty("method", "POST");
+		campaign.addProperty("relative_url", accountId);
 		StringBuilder updateBody = new StringBuilder();
-		account.addProperty("body",
+		campaign.addProperty("body",
 				FacebookUtil.buildUpdateBody(updateBody, keyVal));
-		updateCampaignBatch.add(account);
+		updateCampaignBatch.add(campaign);
 	}
 }

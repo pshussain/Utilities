@@ -1,21 +1,17 @@
 package org.hussain.workspace.social_system;
 
-import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder;
+import java.io.UnsupportedEncodingException;
+
+import org.hussain.workspace.builders.facebook.impl.FacebookAdcreativeBuilder;
 import org.hussain.workspace.social.api.SocialEntity;
 
 public class CreativeBuilderTest {
-	public static void main(String[] args) {
-		FacebookCreativeBuilder builder = SocialEntity.facebookCreative();
-		builder.addCreative(10);
-		builder.addCreative(5);
-		builder.addCreative("Hussain");
+	private String accessToken = "CAAEDOFD5jeEBAGGH7jSVoC0BEOr24YnOyZCYF1HEl38NavbebgclqFaXGVGcbfWQNsMXuBmpRoK0dPR1KksO4k8FIvVlw9M82uAJUCX1OuLoB9dVZBFZCtfZCZAYqPltQrqv7eZADTgs70WxiAWf8jPzTidWIAvsmcaYqqaIEcGDdoTdOYAmVp";
+
+	public void createCreative() throws UnsupportedEncodingException, Exception {
+		FacebookAdcreativeBuilder builder = SocialEntity
+				.facebookCreative(accessToken);
 		System.out.println(builder.create());
 
-		FacebookAdgroupBuilder builder1 = SocialEntity.facebookAdgroup();
-		// builder1.addAdgroup(accountId, bidType, bidInfo, conversionSpecs,
-		// campaignId, creative, objective, targeting, trackingSpecs,
-		// socialPrefs);
-		System.out.println(builder1.create());
 	}
 }

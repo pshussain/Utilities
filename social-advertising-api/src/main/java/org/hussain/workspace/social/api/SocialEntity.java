@@ -6,23 +6,24 @@ import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdimageBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdsetBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookAduserBuilder;
-import org.hussain.workspace.builders.facebook.impl.FacebookCreativeBuilder;
+import org.hussain.workspace.builders.facebook.impl.FacebookAdcreativeBuilder;
 
 public class SocialEntity {
-	public static FacebookCreativeBuilder facebookCreative() {
-		return new FacebookCreativeBuilder();
+	public static FacebookAdcreativeBuilder facebookCreative(String accessToken) {
+		return new FacebookAdcreativeBuilder(accessToken);
 	}
 
 	public static FacebookAdgroupBuilder facebookAdgroup() {
 		return new FacebookAdgroupBuilder();
 	}
 
-	public static FacebookAdcampaignBuilder facebookAdcampaign(String accessToken) {
+	public static FacebookAdcampaignBuilder facebookAdcampaign(
+			String accessToken) {
 		return new FacebookAdcampaignBuilder(accessToken);
 	}
 
-	public static FacebookAdsetBuilder facebookAdset() {
-		return new FacebookAdsetBuilder();
+	public static FacebookAdsetBuilder facebookAdset(String accessToken) {
+		return new FacebookAdsetBuilder(accessToken);
 	}
 
 	public static FacebookAdimageBuilder facebookAdimage() {
