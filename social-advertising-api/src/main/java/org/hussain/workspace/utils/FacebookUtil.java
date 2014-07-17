@@ -1,11 +1,13 @@
 package org.hussain.workspace.utils;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -46,6 +48,35 @@ public class FacebookUtil {
 		}
 		return updateBody.toString();
 
+	}
+
+	/**
+	 * To read the file name.
+	 * 
+	 * @param filePath
+	 *            the file path
+	 * @return the file name
+	 */
+	public static String getFileName(String filePath) {
+		final File imageFile = new File(filePath);
+		final String fileName = imageFile.getName();
+		return fileName;
+	}
+
+	/**
+	 * To read the file name without extension.
+	 * 
+	 * @param fileName
+	 *            the file name
+	 * @return the file name without dot
+	 */
+	public static String getFileNameWithoutDot(String fileName) {
+		final String[] fileData = StringUtils.split(fileName, ".");
+		final StringBuilder sb = new StringBuilder(10);
+		for (int i = 0; i < fileData.length - 1; i++) {
+			sb.append(fileData[i]);
+		}
+		return sb.toString();
 	}
 
 	public static HttpEntity buildBatch(JsonArray addAccountArray,

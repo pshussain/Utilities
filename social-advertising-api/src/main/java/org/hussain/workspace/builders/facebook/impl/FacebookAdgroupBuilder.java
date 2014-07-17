@@ -24,6 +24,13 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	private JsonArray readGroupBatch;
 	private String accessToken;
 
+	public FacebookAdgroupBuilder(String accessToken) {
+		this.addGroupBatch = new JsonArray();
+		this.updateGroupBatch = new JsonArray();
+		this.readGroupBatch = new JsonArray();
+		this.accessToken = accessToken;
+	}
+
 	public List<String> create() throws Exception {
 		List<String> adgroupIdList = new ArrayList<String>();
 		final HttpEntity entity = FacebookUtil.buildBatch(addGroupBatch,

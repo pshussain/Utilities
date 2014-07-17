@@ -25,6 +25,13 @@ public class FacebookAduserBuilder implements FacebookCRUD, UserBuilder {
 	private JsonArray readUserBatch;
 	private String accessToken;
 
+	public FacebookAduserBuilder(String accessToken) {
+		this.addUserBatch = new JsonArray();
+		this.updateUserBatch = new JsonArray();
+		this.readUserBatch = new JsonArray();
+		this.accessToken = accessToken;
+	}
+
 	public List<String> create() throws Exception {
 		List<String> aduserIdList = new ArrayList<String>();
 		final HttpEntity entity = FacebookUtil.buildBatch(addUserBatch,

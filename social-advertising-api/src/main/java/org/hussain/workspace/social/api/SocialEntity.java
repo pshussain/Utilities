@@ -13,8 +13,8 @@ public class SocialEntity {
 		return new FacebookAdcreativeBuilder(accessToken);
 	}
 
-	public static FacebookAdgroupBuilder facebookAdgroup() {
-		return new FacebookAdgroupBuilder();
+	public static FacebookAdgroupBuilder facebookAdgroup(String accessToken) {
+		return new FacebookAdgroupBuilder(accessToken);
 	}
 
 	public static FacebookAdcampaignBuilder facebookAdcampaign(
@@ -26,15 +26,15 @@ public class SocialEntity {
 		return new FacebookAdsetBuilder(accessToken);
 	}
 
-	public static FacebookAdimageBuilder facebookAdimage() {
-		return new FacebookAdimageBuilder();
+	public static FacebookAdimageBuilder facebookAdimage(String accessToken) {
+		return new FacebookAdimageBuilder(accessToken);
 	}
 
 	public static FacebookAdaccountBuilder facebookAccount(String accessToken) {
 		return new FacebookAdaccountBuilder(accessToken);
 	}
 
-	public static FacebookAduserBuilder facebookUser() {
-		return new FacebookAduserBuilder();
+	public static FacebookAduserBuilder facebookUser(String accessToken) {
+		return new FacebookAduserBuilder(accessToken);
 	}
 }
