@@ -1,6 +1,7 @@
 package org.hussain.workspace.builders.facebook.impl;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +86,7 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 		final FileBody image = new FileBody(new File(path));
 		adimageMap.put(FacebookUtil.getFileName(path), image);
 	}
+
 	/**
 	 * 
 	 */
@@ -101,6 +103,14 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 		adimage.addProperty("method", "GET");
 		adimage.addProperty("relative_url", "act_" + accountId
 				+ "/adimages?hashes=" + fields + "&include_headers=false");
+		readImageBatch.add(adimage);
+	}
+
+	public void fetch(String accountId, List<String> hashes) {
+		final JsonObject adimage = new JsonObject();
+		adimage.addProperty("method", "GET");
+		adimage.addProperty("relative_url", "act_" + accountId
+				+ "/adimages?hashes=" + hashes + "&include_headers=false");
 		readImageBatch.add(adimage);
 	}
 

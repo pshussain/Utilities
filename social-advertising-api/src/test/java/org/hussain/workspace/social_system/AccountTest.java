@@ -22,7 +22,7 @@ public class AccountTest {
 	}
 
 	// To update multiple accounts
-	// @Test
+	 @Test
 	public void updateAccount() throws Exception {
 
 		FacebookAdaccountBuilder fbAccount = SocialEntity
@@ -38,7 +38,7 @@ public class AccountTest {
 	}
 
 	// To read multiple accounts
-	@Test
+//	@Test
 	public void readAccount() throws Exception {
 
 		FacebookAdaccountBuilder fbAccount = SocialEntity
@@ -47,7 +47,7 @@ public class AccountTest {
 		// fbAccount.create();
 
 		fbAccount.fetch("275668082617836", "name,timezone_name,users");
-//		fbAccount.fetch("578846975538588");
+		// fbAccount.fetch("578846975538588");
 		for (AdAccount account : fbAccount.read()) {
 			System.out.println(account.getAccountId());
 			System.out.println(account.getTimezone_name());
@@ -55,4 +55,5 @@ public class AccountTest {
 			System.out.println(account.getUsers().get(0).getRole());
 		}
 	}
+
 }

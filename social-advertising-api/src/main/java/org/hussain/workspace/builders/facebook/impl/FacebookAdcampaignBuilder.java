@@ -10,6 +10,7 @@ import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.CampaignBuilder;
 import org.hussain.workspace.builders.facebook.bean.AdAccount;
 import org.hussain.workspace.builders.facebook.bean.AdCampaign;
+import org.hussain.workspace.builders.facebook.enums.CampaignStatus;
 import org.hussain.workspace.crud.FacebookCRUD;
 import org.hussain.workspace.http.HttpHandler;
 import org.hussain.workspace.utils.Constants;
@@ -51,9 +52,9 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 	}
 
 	private String getCampaignId(JsonObject campaign) {
+		System.out.println(campaign);
 		final String body = campaign.get("body").getAsString();
-		String campaignId = FacebookUtil.toJson(body).get("account_id")
-				.getAsString();
+		String campaignId = FacebookUtil.toJson(body).get("id").getAsString();
 		return campaignId;
 	}
 
@@ -63,6 +64,7 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		final HttpEntity entity = FacebookUtil.buildBatch(updateCampaignBatch,
 				this.accessToken, false);
 		String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject campaign : responseList) {
@@ -76,8 +78,7 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 
 	private boolean getUpdateStatus(JsonObject campaign) {
 		final String body = campaign.get("body").getAsString();
-		boolean status = FacebookUtil.toJson(body).get("success")
-				.getAsBoolean();
+		boolean status = Boolean.parseBoolean(body);
 		return status;
 	}
 

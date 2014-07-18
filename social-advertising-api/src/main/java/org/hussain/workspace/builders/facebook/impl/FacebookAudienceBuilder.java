@@ -67,8 +67,10 @@ public class FacebookAudienceBuilder implements FacebookCRUD, AudienceBuilder {
 	}
 
 	private boolean getUpdateStatus(JsonObject account) {
-		// TODO Auto-generated method stub
-		return false;
+		final String body = account.get("body").getAsString();
+		boolean status = FacebookUtil.toJson(body).get("success")
+				.getAsBoolean();
+		return status;
 	}
 
 	public void delete() {

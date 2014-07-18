@@ -36,6 +36,7 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 		final HttpEntity entity = FacebookUtil.buildBatch(addGroupBatch,
 				this.accessToken, false);
 		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject adgroup : responseList) {
@@ -48,8 +49,10 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	}
 
 	private String getAdgroupId(JsonObject adgroup) {
-		// TODO Auto-generated method stub
-		return null;
+		final String body = adgroup.get("body").getAsString();
+		String adgroupId = FacebookUtil.toJson(body).get("adgroup_id")
+				.getAsString();
+		return adgroupId;
 	}
 
 	public List<Boolean> update() throws Exception {
@@ -71,8 +74,10 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	}
 
 	private boolean getUpdateStatus(JsonObject account) {
-		// TODO Auto-generated method stub
-		return false;
+		final String body = account.get("body").getAsString();
+		boolean status = FacebookUtil.toJson(body).get("success")
+				.getAsBoolean();
+		return status;
 	}
 
 	public void delete() {

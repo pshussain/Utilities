@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.CreativeBuilder;
-import org.hussain.workspace.builders.facebook.bean.AdAccount;
 import org.hussain.workspace.builders.facebook.bean.AdCreative;
 import org.hussain.workspace.crud.FacebookCRUD;
 import org.hussain.workspace.http.HttpHandler;
@@ -49,6 +48,7 @@ public class FacebookAdcreativeBuilder implements FacebookCRUD, CreativeBuilder 
 		final HttpEntity entity = FacebookUtil.buildBatch(addCreativeBatch,
 				this.accessToken, false);
 		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject account : responseList) {

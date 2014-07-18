@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook.impl;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -36,6 +37,7 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		final HttpEntity entity = FacebookUtil.buildBatch(addSetBatch,
 				this.accessToken, false);
 		final String response = HttpHandler.doPost(Constants.baseURL, entity);
+		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject adset : responseList) {
@@ -48,8 +50,10 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 	}
 
 	private String getAdsetId(JsonObject adset) {
-		// TODO Auto-generated method stub
-		return null;
+		final String body = adset.get("body").getAsString();
+		String adsetId = FacebookUtil.toJson(body).get("adset_id")
+				.getAsString();
+		return adsetId;
 	}
 
 	public List<Boolean> update() throws UnsupportedEncodingException,
@@ -58,7 +62,6 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		final HttpEntity entity = FacebookUtil.buildBatch(updateSetBatch,
 				this.accessToken, false);
 		String response = HttpHandler.doPost(Constants.baseURL, entity);
-		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject adset : responseList) {
@@ -72,8 +75,10 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 	}
 
 	private boolean getUpdateStatus(JsonObject account) {
-		// TODO Auto-generated method stub
-		return false;
+		final String body = account.get("body").getAsString();
+		boolean status = FacebookUtil.toJson(body).get("success")
+				.getAsBoolean();
+		return status;
 	}
 
 	public void delete() {
@@ -106,7 +111,7 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 	}
 
 	public void addSet(String accountId, String name, String campaignGroupId,
-			String campaignStatus, String startTime, String endTime,
+			String campaignStatus, long startTime, long endTime,
 			String updatedTime, String created_time, Integer dailyBudget,
 			Integer lifetimeBudget) {
 		final JsonObject campaign = new JsonObject();
@@ -147,6 +152,25 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		adgroup.addProperty("relative_url", adsetId + "/?fields=" + fields
 				+ "&include_headers=false");
 		readSetBatch.add(adgroup);
+	}
+
+	public void update(String adsetId, String key, String value) {
+		final JsonObject adset = new JsonObject();
+		adset.addProperty("method", "POST");
+		adset.addProperty("relative_url", adsetId);
+		adset.addProperty("body", key + "=" + value);
+		updateSetBatch.add(adset);
+	}
+
+	public void update(String adsetId, Map<String, String> keyVal) {
+		final JsonObject adset = new JsonObject();
+		adset.addProperty("method", "POST");
+		adset.addProperty("relative_url", adsetId);
+		StringBuilder updateBody = new StringBuilder();
+		adset.addProperty("body",
+				FacebookUtil.buildUpdateBody(updateBody, keyVal));
+		updateSetBatch.add(adset);
+
 	}
 
 }
