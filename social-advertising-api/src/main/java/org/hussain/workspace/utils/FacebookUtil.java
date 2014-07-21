@@ -129,4 +129,20 @@ public class FacebookUtil {
 		final Gson gson = new Gson();
 		return (T) gson.fromJson(response, klass);
 	}
+
+	public static String buildStringTarget(List<String> string) {
+		return new Gson().toJson(string);
+
+	}
+
+	public static String buildIntegerTarget(List<Integer> integer) {
+		return new Gson().toJson(integer);
+
+	}
+
+	public static <T> String buildObjectTarget(List<T> object) {
+		return new Gson().toJson(object);
+
+	}
+
 }

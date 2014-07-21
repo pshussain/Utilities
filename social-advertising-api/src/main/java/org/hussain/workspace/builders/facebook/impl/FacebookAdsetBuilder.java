@@ -9,6 +9,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.SetBuilder;
 import org.hussain.workspace.builders.facebook.bean.AdCampaign;
+import org.hussain.workspace.builders.facebook.bean.AdGroup;
 import org.hussain.workspace.builders.facebook.bean.AdSet;
 import org.hussain.workspace.crud.FacebookCRUD;
 import org.hussain.workspace.http.HttpHandler;
@@ -106,8 +107,10 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 	}
 
 	private AdSet makeAdset(JsonObject json) {
-		// TODO Auto-generated method stub
-		return null;
+		String body = json.get("body").getAsString();
+		AdSet adsetBean = (AdSet) FacebookUtil.fromJson(
+				FacebookUtil.toJson(body), AdSet.class);
+		return adsetBean;
 	}
 
 	public void addSet(String accountId, String name, String campaignGroupId,

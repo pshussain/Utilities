@@ -60,7 +60,6 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 		final HttpEntity entity = FacebookUtil.buildBatch(updateGroupBatch,
 				this.accessToken, false);
 		String response = HttpHandler.doPost(Constants.baseURL, entity);
-		System.out.println(response);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
 		for (JsonObject adgroup : responseList) {
@@ -110,37 +109,7 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 		return adgroupBean;
 	}
 
-	public void addAdgroup(String accountId, String name, String adgroupStatus,
-			String bidType, String bidInfo, JsonObject conversionSpecs,
-			String campaignId, JsonObject creative, String objective,
-			JsonObject targeting, JsonObject trackingSpecs,
-			JsonObject viewTags, JsonObject socialPrefs) {
-		final JsonObject adgroup = new JsonObject();
-		adgroup.addProperty("method", "POST");
-		final StringBuilder body = new StringBuilder(100);
-		adgroup.addProperty("relative_url", "act_" + accountId + "/adgroups");
-		FacebookUtil.buildBody(body, "name", name, Constants.AMP);
-		FacebookUtil.buildBody(body, "adgroup_status", adgroupStatus,
-				Constants.AMP);
-		FacebookUtil.buildBody(body, "bid_type", bidType, Constants.AMP);
-		FacebookUtil.buildBody(body, "bid_info", bidInfo, Constants.AMP);
-		FacebookUtil.buildBody(body, "conversion_specs", conversionSpecs,
-				Constants.AMP);
-		FacebookUtil.buildBody(body, "campaign_id", campaignId, Constants.AMP);
-		FacebookUtil.buildBody(body, "creative", creative, Constants.AMP);
-		FacebookUtil.buildBody(body, "objective", objective, Constants.AMP);
-		FacebookUtil.buildBody(body, "targeting", targeting, Constants.AMP);
-		FacebookUtil.buildBody(body, "tracking_specs", trackingSpecs,
-				Constants.AMP);
-		FacebookUtil.buildBody(body, "view_tags", viewTags, Constants.AMP);
-		FacebookUtil
-				.buildBody(body, "social_prefs", socialPrefs, Constants.AMP);
-		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
-		FacebookUtil.buildBody(body, "redownload", true);
-		adgroup.addProperty("body", body.toString());
-		addGroupBatch.add(adgroup);
-
-	}
+	
 
 	public void fetch(String adgroupId) {
 		final JsonObject adgroup = new JsonObject();
@@ -176,5 +145,41 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 				FacebookUtil.buildUpdateBody(updateBody, keyVal));
 		updateGroupBatch.add(adgroup);
 	}
+
+	
+
+	public void addAdgroup(String accountId, String campaignId, String name,
+			String bidType, String bidInfo, String creativeId,
+			String targeting, String trackingSpecs, String objective,
+			String adgroupStatus, List<String> viewTags,
+			List<String> socialPrefs) {
+		final JsonObject adgroup = new JsonObject();
+		JsonObject creative = new JsonObject();
+		creative.addProperty("creative_id", creativeId);
+		adgroup.addProperty("method", "POST");
+		final StringBuilder body = new StringBuilder(100);
+
+		adgroup.addProperty("relative_url", "act_" + accountId + "/adgroups");
+
+		FacebookUtil.buildBody(body, "name", name, Constants.AMP);
+		FacebookUtil.buildBody(body, "adgroup_status", adgroupStatus,
+				Constants.AMP);
+		FacebookUtil.buildBody(body, "bid_type", bidType, Constants.AMP);
+		FacebookUtil.buildBody(body, "bid_info", bidInfo, Constants.AMP);
+		FacebookUtil.buildBody(body, "campaign_id", campaignId, Constants.AMP);
+		FacebookUtil.buildBody(body, "creative", creative, Constants.AMP);
+		FacebookUtil.buildBody(body, "objective", objective, Constants.AMP);
+		FacebookUtil.buildBody(body, "targeting", targeting, Constants.AMP);
+
+		FacebookUtil.buildBody(body, "include_headers", false, Constants.AMP);
+		FacebookUtil.buildBody(body, "redownload", true);
+		adgroup.addProperty("body", body.toString());
+		addGroupBatch.add(adgroup);
+
+	}
+
+	
+
+	
 
 }
