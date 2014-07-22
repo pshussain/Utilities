@@ -5,8 +5,7 @@ import java.util.Map;
 public interface SetBuilder {
 	public void addSet(String accountId, String name, String campaignGroupId,
 			String campaignStatus, long startTime, long endTime,
-			String updatedTime, String created_time, Integer daily_budget,
-			Integer lifetimeBudget);
+			Integer daily_budget, Integer lifetimeBudget);
 
 	public void update(String adsetId, String key, String value);
 

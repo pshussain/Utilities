@@ -8,19 +8,17 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
-public class Interest {
-	private List<JsonObject> interests;
+public class InterestedIn {
+	private List<Integer> interests;
 
-	public void addInterest(String id, String name) {
-		JsonObject interest = new JsonObject();
-		interest.addProperty("id", id);
-		interest.addProperty("name", name);
+	public void addInterest(Integer interest) {
+
 		interests.add(interest);
 	}
 
 	public JsonArray getInterests() {
 		JsonElement element = new Gson().toJsonTree(interests,
-				new TypeToken<List<String>>() {
+				new TypeToken<List<Integer>>() {
 				}.getType());
 		if (interests.size() > 0) {
 			return element.getAsJsonArray();

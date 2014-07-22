@@ -123,7 +123,8 @@ public class Tracking {
 
 	public String getTrackingSpec(String objective) {
 		if (objective.equals(TrackingSpec.CANVAS_APP_ENGAGEMENT)) {
-			return
+			
 		}
+		return objective;
 	}
 }

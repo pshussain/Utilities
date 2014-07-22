@@ -1,17 +1,18 @@
 package org.hussain.workspace.social_system;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
 import org.hussain.workspace.builders.facebook.bean.AdAccount;
 import org.hussain.workspace.builders.facebook.enums.AdgroupStatus;
 import org.hussain.workspace.builders.facebook.enums.BidType;
 import org.hussain.workspace.builders.facebook.enums.Objective;
+import org.hussain.workspace.builders.facebook.enums.PlacementTypes;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdaccountBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdgroupBuilder;
-import org.hussain.workspace.builders.facebook.targeting.Device;
+import org.hussain.workspace.builders.facebook.targeting.Demographic;
 import org.hussain.workspace.builders.facebook.targeting.Location;
-import org.hussain.workspace.builders.facebook.targeting.Target;
+import org.hussain.workspace.builders.facebook.targeting.Mobile;
+import org.hussain.workspace.builders.facebook.targeting.Placement;
 import org.hussain.workspace.social.api.SocialEntity;
 import org.junit.Test;
 
@@ -24,21 +25,33 @@ public class AdgroupTest {
 
 		FacebookAdgroupBuilder fbAccount = SocialEntity
 				.facebookAdgroup(accessToken);
-		Target target = new Target();
 		Location location = new Location();
-		location.setCountries("US");
-		location.setCountries("UK");
+		location.addCountry("US");
+		// location.addCountry("UK");
 
-		Device device = new Device();
+		Mobile mobile = new Mobile();
+		mobile.addOS("iOS");
+		mobile.addDevice("iPhone");
+		// mobile.addCategory("feature_phones");
+		Demographic demographic = new Demographic();
+		demographic.setMinAge("10");
+		demographic.setMaxAge("17");
 
-		String targetStr = Target.buildTarget(location, device,
-				new ArrayList<Integer>(), new String[] { "1" },
-				new ArrayList<String>(), new ArrayList<String>());
-		
-		fbAccount.addAdgroup("1419302888335966", "6021452658331",
-				"New Adgroup", BidType.CPC.getBidType(), "{'CLICKS':150}",
-				"123", targetStr, null,
-				Objective.MOBILE_APP_INSTALLS.getObjective(),
+		Placement placement = new Placement();
+		placement.addPlacement(PlacementTypes.FEED.getPlacement());
+		// demographic.addGender(1);
+		// demographic.addKeyword("movies");
+
+		// fbAccount.addAdgroup("1419302888335966", "6021452658331",
+		// "New Adgroup", BidType.CPC.getBidType(), "{'CLICKS':150}",
+		// "123", targetStr, null,
+		// Objective.MOBILE_APP_INSTALLS.getObjective(),
+		// AdgroupStatus.ACTIVE.getAdgroupStatus(), null, null);
+
+		fbAccount.addAdgroup("100237586827788", "6016891738526",
+				"This is my third New Adgroup", BidType.CPC.getBidType(),
+				"{'CLICKS':1}", "6016643019726", location, mobile, demographic,
+				placement, null, Objective.MOBILE_APP_INSTALLS.getObjective(),
 				AdgroupStatus.ACTIVE.getAdgroupStatus(), null, null);
 		System.out.println(fbAccount.create());
 

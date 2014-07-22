@@ -20,7 +20,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder {
-	private String batchUrl = "me/adaccounts";
 	final List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
 	private JsonArray addCampaignBatch;
 	private JsonArray updateCampaignBatch;
@@ -42,6 +41,7 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		final String response = HttpHandler.doPost(Constants.baseURL, entity);
 		final List<JsonObject> responseList = FacebookUtil
 				.getResponseAsList(response);
+		System.out.println(responseList);
 		for (JsonObject campaign : responseList) {
 			if (FacebookUtil.iSuccess(campaign)) {
 				String campaignId = getCampaignId(campaign);
@@ -131,6 +131,7 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 		FacebookUtil.buildBody(body, "redownload", true);
 		campaign.addProperty("body", body.toString());
 		addCampaignBatch.add(campaign);
+		System.out.println(addCampaignBatch);
 
 	}
 

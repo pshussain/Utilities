@@ -15,22 +15,23 @@ import org.junit.Test;
 public class CampaignTest {
 	private String accessToken = "CAAEDOFD5jeEBAGGH7jSVoC0BEOr24YnOyZCYF1HEl38NavbebgclqFaXGVGcbfWQNsMXuBmpRoK0dPR1KksO4k8FIvVlw9M82uAJUCX1OuLoB9dVZBFZCtfZCZAYqPltQrqv7eZADTgs70WxiAWf8jPzTidWIAvsmcaYqqaIEcGDdoTdOYAmVp";
 
-	// @Test
+	@Test
 	// To Create A New Campaign
 	public void createCampaign() throws UnsupportedEncodingException, Exception {
 
 		FacebookAdcampaignBuilder fbCampaign = SocialEntity
 				.facebookAdcampaign(accessToken);
-		fbCampaign.addCampaign("1419302888335966", "New Test Campaign",
+		fbCampaign.addCampaign("100237586827788", "This is third Campaign Group",
 				Objective.NONE.getObjective(),
-				CampaignStatus.ACTIVE.getCampaignStatus(), "FIXED_CPM");
+				CampaignStatus.ACTIVE.getCampaignStatus(), "AUCTION");
 
-		assertNotNull(fbCampaign.create());
+		System.out.println(fbCampaign.create());
+		// assertNotNull(fbCampaign.create());
 
 	}
 
 	// To update multiple campaigns
-	@Test
+	// @Test
 	public void updateCampaign() throws Exception {
 
 		FacebookAdcampaignBuilder fbCampaign = SocialEntity
