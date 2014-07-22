@@ -9,7 +9,9 @@ import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.AdgroupBuilder;
 import org.hussain.workspace.builders.facebook.bean.AdGroup;
+import org.hussain.workspace.builders.facebook.targeting.Behavior;
 import org.hussain.workspace.builders.facebook.targeting.Demographic;
+import org.hussain.workspace.builders.facebook.targeting.Interest;
 import org.hussain.workspace.builders.facebook.targeting.Location;
 import org.hussain.workspace.builders.facebook.targeting.Mobile;
 import org.hussain.workspace.builders.facebook.targeting.Placement;
@@ -151,8 +153,9 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 	public void addAdgroup(String accountId, String campaignId, String name,
 			String bidType, String bidInfo, String creativeId,
 			Location location, Mobile mobile, Demographic demographic,
-			Placement placement, String trackingSpec, String objective,
-			String adgroupStatus, List<String> viewTags,
+			Placement placement, Interest interests, Behavior behavior,
+			JsonArray relationshipStatuses, String trackingSpec,
+			String objective, String adgroupStatus, List<String> viewTags,
 			List<String> socialPrefs) {
 
 		final JsonObject adgroup = new JsonObject();
@@ -209,6 +212,21 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 		 * Adding placement targeting info
 		 * */
 		addToTarget(targeting, "page_types", placement.getPlacement());
+
+		/**
+		 * Adding Interest targeting info
+		 */
+		addToTarget(targeting, "interests", interests.getInterests());
+
+		/**
+		 * Adding Behavior targeting info
+		 */
+		addToTarget(targeting, "behaviors", behavior.getBehavior());
+
+		/**
+		 * Adding Relationship Status info
+		 */
+		addToTarget(targeting, "relationship_statuses", relationshipStatuses);
 
 		FacebookUtil.buildBody(body, "targeting", targeting, Constants.AMP);
 

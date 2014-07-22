@@ -39,7 +39,7 @@ public class AdgroupTest {
 
 		Placement placement = new Placement();
 		placement.addPlacement(PlacementTypes.FEED.getPlacement());
-		// demographic.addGender(1);
+		 demographic.addGender(1);
 		// demographic.addKeyword("movies");
 
 		// fbAccount.addAdgroup("1419302888335966", "6021452658331",

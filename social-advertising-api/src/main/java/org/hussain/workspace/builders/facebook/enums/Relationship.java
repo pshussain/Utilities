@@ -1,20 +1,17 @@
 package org.hussain.workspace.builders.facebook.enums;
 
 public enum Relationship {
-	SINGLE("single"), IN_RELATIONSHIP("in_relationship"), MARRIED("married"), ENGAGED(
-			"engaged"), NOT_SPECIFIED("not specified"), IN_A_CIVIL_UNION(
-			"in a civil union"), IN_A_DOMESTIC_PARTNERSHIP(
-			"in a domestic partnership"), IN_AN_OPEN_RELATIONSHIP(
-			"in an open relationship"), ITS_COMPLICATED("It\'s complicated"), SEPARATED(
-			"separated"), DIVORCED("Divorced"), WIDOWED("Widowed");
+	SINGLE(1), IN_RELATIONSHIP(2), MARRIED(3), ENGAGED(4), NOT_SPECIFIED(6), IN_A_CIVIL_UNION(
+			7), IN_A_DOMESTIC_PARTNERSHIP(8), IN_AN_OPEN_RELATIONSHIP(9), ITS_COMPLICATED(
+			10), SEPARATED(11), DIVORCED(12), WIDOWED(13);
 
-	private String relationshipStatus;
+	private Integer relationshipStatus;
 
-	Relationship(String relationshipStatus) {
+	Relationship(Integer relationshipStatus) {
 		this.relationshipStatus = relationshipStatus;
 	}
 
-	public String getRelationshipStatus() {
+	public Integer getRelationshipStatus() {
 		return relationshipStatus;
 	}
 }
