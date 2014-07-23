@@ -52,7 +52,6 @@ public class FacebookAdcampaignBuilder implements FacebookCRUD, CampaignBuilder 
 	}
 
 	private String getCampaignId(JsonObject campaign) {
-		System.out.println(campaign);
 		final String body = campaign.get("body").getAsString();
 		String campaignId = FacebookUtil.toJson(body).get("id").getAsString();
 		return campaignId;

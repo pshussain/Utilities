@@ -3,6 +3,7 @@ package org.hussain.workspace.builders.facebook;
 import java.util.List;
 import java.util.Map;
 
+import org.hussain.workspace.builders.facebook.targeting.AdvancedDemographics;
 import org.hussain.workspace.builders.facebook.targeting.Behavior;
 import org.hussain.workspace.builders.facebook.targeting.Demographic;
 import org.hussain.workspace.builders.facebook.targeting.Interest;
@@ -18,6 +19,7 @@ public interface AdgroupBuilder {
 			String bidType, String bidInfo, String creativeId,
 			Location location, Mobile mobile, Demographic demographic,
 			Placement placement, Interest interests, Behavior behavior,
+			AdvancedDemographics advDemographic,
 			JsonArray relationshipStatuses, String trackingSpec,
 			String objective, String adgroupStatus, List<String> viewTags,
 			List<String> socialPrefs);

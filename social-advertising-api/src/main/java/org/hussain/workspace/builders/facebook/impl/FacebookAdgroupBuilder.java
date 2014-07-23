@@ -9,6 +9,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.hussain.workspace.builders.facebook.AdgroupBuilder;
 import org.hussain.workspace.builders.facebook.bean.AdGroup;
+import org.hussain.workspace.builders.facebook.targeting.AdvancedDemographics;
 import org.hussain.workspace.builders.facebook.targeting.Behavior;
 import org.hussain.workspace.builders.facebook.targeting.Demographic;
 import org.hussain.workspace.builders.facebook.targeting.Interest;
@@ -154,6 +155,7 @@ public class FacebookAdgroupBuilder implements FacebookCRUD, AdgroupBuilder {
 			String bidType, String bidInfo, String creativeId,
 			Location location, Mobile mobile, Demographic demographic,
 			Placement placement, Interest interests, Behavior behavior,
+			AdvancedDemographics advDemographic,
 			JsonArray relationshipStatuses, String trackingSpec,
 			String objective, String adgroupStatus, List<String> viewTags,
 			List<String> socialPrefs) {

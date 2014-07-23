@@ -16,6 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
@@ -143,6 +144,17 @@ public class FacebookUtil {
 	public static <T> String buildObjectTarget(List<T> object) {
 		return new Gson().toJson(object);
 
+	}
+
+	public static <T> JsonArray getJsonArray(List<T> entity) {
+		JsonElement element = new Gson().toJsonTree(entity,
+				new TypeToken<List<T>>() {
+				}.getType());
+		if (entity.size() > 0) {
+			return element.getAsJsonArray();
+		} else {
+			return new JsonArray();
+		}
 	}
 
 }
