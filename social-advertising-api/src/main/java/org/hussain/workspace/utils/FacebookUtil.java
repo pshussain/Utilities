@@ -11,7 +11,10 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
@@ -89,6 +92,43 @@ public class FacebookUtil {
 				.toString()));
 		nameValuePairs.add(new BasicNameValuePair("access_token", accessToken));
 		return new UrlEncodedFormEntity(nameValuePairs);
+	}
+
+	public static HttpEntity buildMultipartBatch(
+			Map<String, FileBody> imageMap, JsonArray addImageBatch,
+			String accessToken, boolean downloadHeader) {
+		// MultipartEntityBuilder entity = MultipartEntityBuilder.create();
+		HttpEntity entity = null;
+		MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
+		for (Map.Entry<String, FileBody> entry : imageMap.entrySet()) {
+			entityBuilder.addPart(entry.getKey(), entry.getValue());
+
+		}
+		entityBuilder
+				.addPart(
+						"batch",
+						new StringBody(addImageBatch.toString(),
+								ContentType.TEXT_PLAIN))
+				.addPart("access_token",
+						new StringBody(accessToken, ContentType.TEXT_PLAIN))
+				.build();
+		entity = entityBuilder.build();
+		return entity;
+	}
+
+	public static HttpEntity buildMultipart(String fileName, FileBody file,
+			String accessToken, boolean downloadHeader) {
+		// MultipartEntityBuilder entity = MultipartEntityBuilder.create();
+		HttpEntity entity = null;
+		MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
+
+		entityBuilder
+				.addPart(fileName, file)
+				.addPart("access_token",
+						new StringBody(accessToken, ContentType.TEXT_PLAIN))
+				.build();
+		entity = entityBuilder.build();
+		return entity;
 	}
 
 	public static HttpEntity buildBatch(JsonArray addAccountArray,

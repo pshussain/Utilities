@@ -48,11 +48,11 @@ public class AdgroupTest {
 		// Objective.MOBILE_APP_INSTALLS.getObjective(),
 		// AdgroupStatus.ACTIVE.getAdgroupStatus(), null, null);
 
-		fbAccount.addAdgroup("100237586827788", "6016891738526",
-				"This is my third New Adgroup", BidType.CPC.getBidType(),
-				"{'CLICKS':1}", "6016643019726", location, mobile, demographic,
-				placement, null, Objective.MOBILE_APP_INSTALLS.getObjective(),
-				AdgroupStatus.ACTIVE.getAdgroupStatus(), null, null);
+		// fbAccount.addAdgroup("100237586827788", "6016891738526",
+		// "This is my third New Adgroup", BidType.CPC.getBidType(),
+		// "{'CLICKS':1}", "6016643019726", location, mobile, demographic,
+		// placement, null, Objective.MOBILE_APP_INSTALLS.getObjective(),
+		//	AdgroupStatus.ACTIVE.getAdgroupStatus(), null, null);
 		System.out.println(fbAccount.create());
 
 	}

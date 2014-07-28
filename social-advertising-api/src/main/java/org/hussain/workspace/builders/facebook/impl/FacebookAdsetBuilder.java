@@ -55,8 +55,7 @@ public class FacebookAdsetBuilder implements FacebookCRUD, SetBuilder {
 		// :[{"code":200,"body":"{\"id\":\"6021492195131\",\"data\":{\"campaigns\":{\"6021492195131\":{\"id\":\"6021492195131\",\"account_id\":1419302888335966,\"name\":\"New Adset\",\"lifetime_budget\":15000,\"campaign_status\":\"ACTIVE\",\"daily_imps\":0,\"frequency_cap\":0,\"frequency_cap_reset_period\":0,\"start_time\":1406019428,\"end_time\":1406105828,\"updated_time\":1406019418,\"created_time\":1406019418,\"campaign_group_id\":6021492191931,\"prorated_daily_budget\":15000,\"budget_remaining\":15000}}}}"}]
 
 		final String body = adset.get("body").getAsString();
-		String adsetId = FacebookUtil.toJson(body).get("id")
-				.getAsString();
+		String adsetId = FacebookUtil.toJson(body).get("id").getAsString();
 		return adsetId;
 	}
 

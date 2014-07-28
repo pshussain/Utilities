@@ -26,7 +26,7 @@ public class Utils {
 		loc.addCity("123456", 100, "km");
 		loc.addRegion("3847");
 		loc.addZipcode("US", "94304");
-		System.out.println(loc.makeLocation());
+		// System.out.println(loc.makeLocation());
 
 		Mobile mobile = new Mobile();
 		mobile.addDevice("samsung_galaxy_note_10.1_2014");
@@ -38,7 +38,7 @@ public class Utils {
 		demo.addGender(1);
 		demo.setMaxAge("10");
 		demo.setMinAge("1");
-//		System.out.println(demo.makeDemographic());
+		// System.out.println(demo.makeDemographic());
 
 	}
 }
