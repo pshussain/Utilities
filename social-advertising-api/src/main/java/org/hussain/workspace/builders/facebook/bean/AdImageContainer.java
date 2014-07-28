@@ -14,6 +14,12 @@ public class AdImageContainer {
 		return adImages;
 	}
 
+	@Override
+	public String toString() {
+		return "AdImageContainer [adImages=" + adImages + ", after=" + after
+				+ ", before=" + before + "]";
+	}
+
 	public void setAdImage(List<AdImage> adImages) {
 		this.adImages = adImages;
 	}

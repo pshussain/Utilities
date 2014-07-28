@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import org.hussain.workspace.builders.facebook.bean.AdAccount;
+import org.hussain.workspace.builders.facebook.bean.AdImage;
 import org.hussain.workspace.builders.facebook.bean.AdImageContainer;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdaccountBuilder;
 import org.hussain.workspace.builders.facebook.impl.FacebookAdimageBuilder;
@@ -51,7 +52,7 @@ public class AdimageTest {
 	}
 
 	// To read multiple adsets
-	@Test
+	// @Test
 	public void readAdImageByAccount() throws Exception {
 
 		ArrayList<String> fields = new ArrayList<String>();
@@ -65,5 +66,26 @@ public class AdimageTest {
 				fields);
 		System.out.println(container.getAfter());
 		System.out.println(container.getBefore());
+	}
+
+	@Test
+	public void readAdImageByHash() throws Exception {
+
+		ArrayList<String> fields = new ArrayList<String>();
+		fields.add("id");
+		fields.add("url");
+		fields.add("hash");
+
+		ArrayList<String> hashes = new ArrayList<String>();
+		fields.add("id");
+		fields.add("url");
+		fields.add("hash");
+		FacebookAdimageBuilder fbImage = SocialEntity
+				.facebookAdimage(accessToken);
+		AdImageContainer container = fbImage.readByHash("100237586827788",
+				hashes);
+		for (AdImage image : container.getAdImages()) {
+			System.out.println(image.getHash() + " : " + image.getId());
+		}
 	}
 }

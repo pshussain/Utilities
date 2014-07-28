@@ -97,9 +97,10 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 	 * },{"name":"Content-Type","value":"text\/javascript;
 	 * charset=UTF-8"},{"name
 	 * ":"Facebook-API-Version","value":"v1.0"}],"body":"{\
-	 * "images\":{\"CTC6.png\":{\"hash\":\"d9c90e0e65b3219f156d759589344c95\",\"url\":\"https:\\\/\\\/fbcdn-creative-a.akamaihd.net\\\/hads
-	 * - a k - x f a 1 \ \ \ / t 4 5 . 1 6 0 0 - 4 \ \ \ / 1 0 5 5 0 7 8 0 _ 6 0
-	 * 1 7 8 2 5 1 0 7 8 8 4 _ 1 0 9 3 3 0 9 4 8 5 _ n . p n g \ " } } } " } ]
+	 * "images\":{\"CTC6.png\":{\"hash\":\"d9c90e0e65b3219f156d759589344c95\",\"url\":\"https:\\\/\\\/fbcdn-creative-a.akamaihd.n
+	 * e t \ \ \ / h a d s - a k - x f a 1 \ \ \ / t 4 5 . 1 6 0 0 - 4 \ \ \ / 1
+	 * 0 5 5 0 7 8 0 _ 6 0 1 7 8 2 5 1 0 7 8 8 4 _ 1 0 9 3 3 0 9 4 8 5 _ n . p n
+	 * g \ " } } } " } ]
 	 * 
 	 * @param adimage
 	 * @param imageMap
@@ -191,79 +192,15 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 		System.out.println(account);
 	}
 
-	/**
-	 * 
-	 */
-	public void fetch(String accountId) {
-		final JsonObject adgroup = new JsonObject();
-		adgroup.addProperty("method", "GET");
-		adgroup.addProperty("relative_url", "act_" + accountId
-				+ "/adimages?include_headers=false");
-		readImageBatch.add(adgroup);
-	}
-
-	public void fetch(String accountId, String fields) {
-		final JsonObject adimage = new JsonObject();
-		adimage.addProperty("method", "GET");
-		adimage.addProperty("relative_url", "act_" + accountId
-				+ "/adimages?hashes=" + fields + "&include_headers=false");
-		readImageBatch.add(adimage);
-	}
-
-	public void fetch(String accountId, List<String> hashes) {
-		final JsonObject adimage = new JsonObject();
-		adimage.addProperty("method", "GET");
-		adimage.addProperty("relative_url", "act_" + accountId
-				+ "/adimages?hashes=" + hashes + "&include_headers=false");
-		readImageBatch.add(adimage);
-	}
+	
 
 	public AdImageContainer readByAccount(String accountId) throws Exception {
-		// final JsonObject adgroup = new JsonObject();
-		// String url = "https://graph.facebook.com/act_" + accountId
-		// + "/adimages?";
-		// final String response = HttpHandler.doGet(url + "&access_token="
-		// + accessToken);
-		// JsonObject adImageJson = FacebookUtil.toJson(response);
-		// JsonArray imageDataArray = adImageJson.get("data").getAsJsonArray();
-		// AdImageContainer container = new AdImageContainer();
-		// for (JsonElement image : imageDataArray) {
-		// final AdImage imageBean = new AdImage();
-		// imageBean.setId(image.getAsJsonObject().get("id").getAsString());
-		// imageBean
-		// .setHash(image.getAsJsonObject().get("hash").getAsString());
-		// container.addImage(imageBean);
-		// }
-		//
-		// return container;
-
 		return readByAccount(accountId, null, null);
 
 	}
 
 	public AdImageContainer readByAccount(String accountId, List<String> fields)
 			throws Exception {
-		// final JsonObject adgroup = new JsonObject();
-		// String url = "https://graph.facebook.com/act_" + accountId
-		// + "/adimages?";
-		// final String response = HttpHandler.doGet(url + "&access_token="
-		// + accessToken);
-		// JsonObject adImageJson = FacebookUtil.toJson(response);
-		// JsonArray imageDataArray = adImageJson.get("data").getAsJsonArray();
-		// AdImageContainer container = new AdImageContainer();
-		// for (JsonElement image : imageDataArray) {
-		// final AdImage imageBean = new AdImage();
-		// imageBean.setId(image.getAsJsonObject().get("id").getAsString());
-		// imageBean
-		// .setHash(image.getAsJsonObject().get("hash").getAsString());
-		// container.addImage(imageBean);
-		// }
-		// String after = adImageJson.get("paging").getAsJsonObject()
-		// .get("cursors").getAsJsonObject().get("after").getAsString();
-		// if (after != null) {
-		// container.setAfter(after);
-		// }
-		// return container;
 		return readByAccount(accountId, fields, null);
 	}
 
@@ -289,7 +226,6 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 				System.out.println(counter + "=" + fieldsBuffer);
 			}
 			baseURL.append("&fields=").append(fieldsBuffer);
-			System.out.println(baseURL);
 		}
 		final String response = HttpHandler.doGet(baseURL + "&access_token="
 				+ accessToken);
@@ -315,21 +251,65 @@ public class FacebookAdimageBuilder implements FacebookCRUD, ImageBuilder {
 		return container;
 	}
 
-	public List<AdImage> readByHash(String accountId, List<String> hashes) {
+	public AdImageContainer readByHash(String accountId, List<String> hashes)
+			throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return readByHash(accountId, hashes, null, null);
 	}
 
-	public List<AdImage> readByHash(String accountId, List<String> hashes,
-			List<String> fields) {
-		// TODO Auto-generated method stub
-		return null;
+	public AdImageContainer readByHash(String accountId, List<String> hashes,
+			List<String> fields) throws Exception {
+		return readByHash(accountId, hashes, fields, null);
 	}
 
-	public List<AdImage> readByHash(String accountId, List<String> hashes,
-			List<String> fields, String after) {
-		// TODO Auto-generated method stub
-		return null;
+	public AdImageContainer readByHash(String accountId, List<String> hashes,
+			List<String> fields, String after) throws Exception {
+		final JsonObject adgroup = new JsonObject();
+		final StringBuilder baseURL = new StringBuilder(
+				"https://graph.facebook.com/act_" + accountId + "/adimages?");
+
+		if (hashes != null) {
+			baseURL.append("&hashes=").append(hashes.toString());
+		}
+		if (after != null) {
+			baseURL.append("&after=").append(after);
+		}
+		if (fields != null) {
+			int len = fields.size();
+			int counter = 0;
+			final StringBuilder fieldsBuffer = new StringBuilder();
+			for (String field : fields) {
+				if (counter < len - 1)
+					fieldsBuffer.append(field).append(",");
+				else
+					fieldsBuffer.append(field);
+				counter++;
+				System.out.println(counter + "=" + fieldsBuffer);
+			}
+			baseURL.append("&fields=").append(fieldsBuffer);
+		}
+		final String response = HttpHandler.doGet(baseURL + "&access_token="
+				+ accessToken);
+		final JsonObject adImageJson = FacebookUtil.toJson(response);
+		final JsonArray imageDataArray = adImageJson.get("data")
+				.getAsJsonArray();
+		final AdImageContainer container = new AdImageContainer();
+		for (JsonElement image : imageDataArray) {
+			container.addImage((AdImage) FacebookUtil.fromJson(
+					image.getAsJsonObject(), AdImage.class));
+		}
+		final String tempAfter = adImageJson.get("paging").getAsJsonObject()
+				.get("cursors").getAsJsonObject().get("after").getAsString();
+		final String tempBefore = adImageJson.get("paging").getAsJsonObject()
+				.get("cursors").getAsJsonObject().get("before").getAsString();
+		if (tempAfter != null) {
+			container.setAfter(tempAfter);
+		}
+
+		if (tempBefore != null) {
+			container.setBefore(tempBefore);
+		}
+		return container;
 	}
 
 }
