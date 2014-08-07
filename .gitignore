@@ -79,3 +79,7 @@ kafka-produce/.project
 kafka-produce/.settings/
 kafka-produce/.classpath
 
+lucene-poc/target/
+lucene-poc/.project
+lucene-poc/.settings/
+lucene-poc/.classpath
