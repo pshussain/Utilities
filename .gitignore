@@ -83,3 +83,8 @@ lucene-poc/target/
 lucene-poc/.project
 lucene-poc/.settings/
 lucene-poc/.classpath
+
+nolock-map/target/
+nolock-map/.project
+nolock-map/.settings/
+nolock-map/.classpath
