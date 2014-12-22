@@ -14,26 +14,26 @@ public class SocialEntity {
 	}
 
 	public static FacebookAdgroupBuilder facebookAdgroup() {
-		return new FacebookAdgroupBuilder();
+		return new FacebookAdgroupBuilder(null);
 	}
 
 	public static FacebookAdcampaignBuilder facebookAdcampaign() {
-		return new FacebookAdcampaignBuilder();
+		return new FacebookAdcampaignBuilder(null);
 	}
 
 	public static FacebookAdsetBuilder facebookAdset() {
-		return new FacebookAdsetBuilder();
+		return new FacebookAdsetBuilder(null);
 	}
 
 	public static FacebookAdimageBuilder facebookAdimage() {
-		return new FacebookAdimageBuilder();
+		return new FacebookAdimageBuilder(null);
 	}
 
 	public static FacebookAdaccountBuilder facebookAccount() {
-		return new FacebookAdaccountBuilder();
+		return new FacebookAdaccountBuilder(null);
 	}
 
 	public static FacebookAduserBuilder facebookUser() {
-		return new FacebookAduserBuilder();
+		return new FacebookAduserBuilder(null);
 	}
 }
