@@ -93,5 +93,6 @@ fabdy-api/target/
 fabdy-api/.project
 fabdy-api/.settings/
 fabdy-api/.classpath
+.idea/
 .idea/*
 fabdy-api.iml
