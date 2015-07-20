@@ -9,7 +9,7 @@ social-producer/.classpath
 connector-batch/target/
 connector-batch/.project
 connector-batch/.settings/
-connector-batch/.classpath
+Gconnector-batch/.classpath
 async-service/target/
 async-service/.project
 async-service/.settings/
@@ -88,3 +88,9 @@ nolock-map/target/
 nolock-map/.project
 nolock-map/.settings/
 nolock-map/.classpath
+
+fabdy-api/target/
+fabdy-api/.project
+fabdy-api/.settings/
+fabdy-api/.classpath
+.idea/*
