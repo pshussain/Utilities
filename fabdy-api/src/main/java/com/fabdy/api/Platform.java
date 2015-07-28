@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public abstract class Platform {
 
-    protected abstract Response createListing(Map<String, String> listingValues, List<Marketplace> marketplaces, long category, long seller) throws IOException;
+    public abstract Response createListing(Map<String, String> listingValues, List<Marketplace> marketplaces, long category, long seller) throws IOException, InterruptedException;
 
     protected abstract List<Listing> getListing();
 

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class ListingApi extends Platform {
     @Override
-    protected Response createListing(Map<String, String> listingValues, List<Marketplace> marketplaces, long category, long seller) throws IOException {
+    public Response createListing(Map<String, String> listingValues, List<Marketplace> marketplaces, long category, long seller) throws IOException, InterruptedException {
         for(Marketplace marketplace : marketplaces) {
             marketplace.createListing(listingValues, category, seller);
         }
